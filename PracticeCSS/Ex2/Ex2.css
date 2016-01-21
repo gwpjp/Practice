@@ -1,0 +1,13 @@
+body {
+  background-color: cyan;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+li::first-letter {
+  text-transform: uppercase;
+  font-size: 150%;
+}

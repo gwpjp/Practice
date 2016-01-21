@@ -1,0 +1,54 @@
+body {
+  text-align: center;
+  width: 600px;
+  margin:auto;
+  font-family: Garamond;
+}
+
+#logo h1{
+  visibility: hidden;
+}
+
+#logo {
+  float: left;
+  width: 40%;
+  height: 250px;
+}
+
+#header blockquote{
+  height: 250px;
+  width: 60%;
+  font-size: 120%;
+  font-family: Times;
+  font-style: italic;
+  float: right;
+  margin: auto;
+}
+
+#header blockquote p{
+  margin-top: 100px;
+}
+
+#content-side{
+  margin: 1%;
+  float: left;
+  width: 38%;
+  text-align: left;
+}
+
+#content-main{
+  float: right;
+  width: 58%;
+  text-align: left;
+  font-size: 90%;
+  margin: 1%;
+}
+
+a{
+  color: brown;
+  text-decoration: none;
+}
+
+dd {
+  font-size: 80%;
+}

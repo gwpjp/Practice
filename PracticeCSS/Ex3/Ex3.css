@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(108, 67, 224);
+  text-align: center;
+}
+
+#wrap {
+  margin: auto;
+  width: 650px;
+}
+
+#nav {
+  position: relative;
+  float: left;
+  background-color: lightblue;
+  height: 420px;
+  width: 150px;
+
+}
+
+#nav ul {
+  text-align: left;
+  margin-left: 5px;
+}
+
+#content {
+  background-color: rgb(122, 137, 235);
+  height: 420px;
+  float:right;
+  width: 500px;
+}
+
+#content ul {
+  list-style-type: none;
+}
+
+#copyright  {
+  position: relative;
+  clear: both;
+}

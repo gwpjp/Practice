@@ -1,0 +1,16 @@
+body {
+  background-color: lightblue;
+}
+
+a {
+  color: violet;
+}
+
+.copyright {
+  font-size: 10px;
+  font-style: italic;
+}
+
+li {
+  text-align: center;
+}
