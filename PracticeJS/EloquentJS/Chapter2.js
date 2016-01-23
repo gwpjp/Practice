@@ -1,3 +1,7 @@
+/*jslint browser:true */
+/*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, maxerr: 50 */
+
+
 "use strict";
 
 //Looping a Triangle
@@ -13,15 +17,15 @@ console.log("");
 console.log("FizzBuzz");
 var text = "";
 for (var i=1; i < 100; i++) {
-  if (i%3 == 0) {
-    if (i%5 == 0){
+  if (i%3 === 0) {
+    if (i%5 === 0){
       text += "FizzBuzz,";
     }
     else {
       text += "Fizz,";
     }
   }
-  else if (i%5 == 0){
+  else if (i%5 === 0){
     text += "Buzz,";
   }
   else {
@@ -37,7 +41,7 @@ var size = 8;
 var text = "";
 for (var i=0; i < size; i++) {
   for (var j=0; j < size; j++) {
-    if ((i+j)%2 == 0) {
+    if ((i+j)%2 === 0) {
       text += " ";
     }
     else {
