@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+  <head>
+    <title>Etch Sketch</title>
+    <link rel="stylesheet" type="text/css" href="EtchSketch.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="EtchSketch.js"></script>
+  </head>
+  <body>
+    <br>
+    <div id = "user">
+      Rows: <input id = "rows" type="text" value = "16">
+      Columns: <input id = "columns" type = "text" value = "16">
+      Pen Color:<input id = "color" type = "text" value = "blue">
+      <br>
+      <input type = "button" id = "userSubmit" value = "Create new Etch a Sketch">
+      <input type="button" id = "userClear" value = "Clear current Etch a Sketch">
+      <br>
+      <br>
+    </div>
+
+    <div id="divContainer" class = "cleared">
+      <table id="tableContainer">
+
+      </table>
+    </div>
+  </body>
+</html>
