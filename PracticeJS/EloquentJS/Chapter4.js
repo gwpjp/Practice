@@ -41,7 +41,7 @@ var reverseArrayInPlace = function (arr) {
 //A list
 
 var arrayToList = function (arr) {
-	if (arr.length === 0) {
+	if (arr.length == 0) {
 		return null
 	} else {
 		var list, temp;
@@ -69,9 +69,26 @@ var prepend = function (elt,list) {
 var nth = function (list, n) {
 	if (list == null) {
 		return undefined;
-	} else if (n == 1) {
+	} else if (n == 0) {
 		return list.value;
 	} else {
 		return nth(list.rest,n-1);
+	}
+};
+
+//Deep Comparison
+var deepEqual = function(x,y) {
+	if (x == null && y == null) {
+		return true;
+	}
+	else if (typeof x == "object" && typeof y == "object"){
+			var bool = Object.keys(x).length == Object.keys(y).length;
+			for (let event in x) {
+				bool = bool && deepEqual(x[event], y[event]);
+			}
+			return bool;
+	} 
+	else {
+		return x === y;
 	}
 };
