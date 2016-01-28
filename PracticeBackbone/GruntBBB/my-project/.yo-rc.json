@@ -1,0 +1,16 @@
+{
+  "generator-bbb": {
+    "name": "TodoBBB",
+    "testFramework": "jasmine",
+    "moduleStyle": "amd",
+    "indent": {
+      "style": "space",
+      "size": 2
+    },
+    "paths": {
+      "base": ".",
+      "tests": "test",
+      "modules": "app/modules"
+    }
+  }
+}

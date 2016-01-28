@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Handlebars</title>
+    <script src="handlebars-v3.0.3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="myhandle.js"></script>
+  </head>
+  <body>
+    <script id="mainTemplate" type="x-handlebars-template">
+      <h1>Hello {{caps name}}</h1>
+      {{caps name lower="no"}}
+      {{caps name lower="yes"}}
+
+      <h3>{{greeting}}</h3>
+
+      <ul>
+        {{#listX 8}}
+          <li><b>8<sup>{{number}}</sup></b>= {{result}}</li>
+        {{else}}
+          <li>8<sup>{{number}}</sup> = {{result}}</li>
+        {{/listX}}
+      </ul>
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}</style>
+      <link href="Bookstore_files/bootstrap.css" rel="stylesheet">
+    <link href="Bookstore_files/css.css" rel="stylesheet" type="text/css">
+    <link href="Bookstore_files/main.css" rel="stylesheet">
+
+    <script src="Bookstore_files/angular.js"></script>
+  </head>
+  <body class="ng-scope" ng-app="myApp">
+    <div class="header">
+      <div class="container">
+        <h1>Book End</h1>
+      </div>
+    </div>
+
+    <div class="main ng-scope" ng-controller="MainController">
+      <div class="container">
+
+        <h1 class="ng-binding">FlashKey</h1>
+        <h2 class="ng-binding">Good news!</h2>
+
+        <!-- ngRepeat: product in products --><div ng-repeat="product in products" class="col-md-6 ng-scope"> 
+  <div class="thumbnail"> 
+    <img src="Bookstore_files/the-book-of-trees.jpg" ng-src="img/the-book-of-trees.jpg"> 
+    <p class="title ng-binding">The Book of Trees</p> 
+    <p class="price ng-binding">$19.00</p> 
+    <p class="date ng-binding">Apr 8, 2014</p> 
+    <div class="rating"> 
+  		<p class="likes ng-binding" ng-click="plusOne($index)">+0 </p> 
+      <p class="dislikes ng-binding" ng-click="minusOne($index)">-0 </p>
+</div>
+
+
+
+  </div> 
+</div><!-- end ngRepeat: product in products --><div ng-repeat="product in products" class="col-md-6 ng-scope"> 
+  <div class="thumbnail"> 
+    <img src="Bookstore_files/program-or-be-programmed.jpg" ng-src="img/program-or-be-programmed.jpg"> 
+    <p class="title ng-binding">Program or be Programmed</p> 
+    <p class="price ng-binding">$8.00</p> 
+    <p class="date ng-binding">Sep 1, 2013</p> 
+    <div class="rating"> 
+  		<p class="likes ng-binding" ng-click="plusOne($index)">+0 </p> 
+      <p class="dislikes ng-binding" ng-click="minusOne($index)">-0 </p>
+</div>
+
+
+
+  </div> 
+</div><!-- end ngRepeat: product in products --><div ng-repeat="product in products" class="col-md-6 ng-scope"> 
+  <div class="thumbnail"> 
+    <img src="Bookstore_files/51grMGCKivL.jpg" ng-src="http://ecx.images-amazon.com/images/I/51grMGCKivL._SY344_BO1,204,203,200_.jpg"> 
+    <p class="title ng-binding">To Kill a Mockingbird</p> 
+    <p class="price ng-binding">$6.00</p> 
+    <p class="date ng-binding">Jun 1, 1950</p> 
+    <div class="rating"> 
+  		<p class="likes ng-binding" ng-click="plusOne($index)">+1 </p> 
+      <p class="dislikes ng-binding" ng-click="minusOne($index)">-0 </p>
+</div>
+
+
+
+  </div> 
+</div><!-- end ngRepeat: product in products --><div ng-repeat="product in products" class="col-md-6 ng-scope"> 
+  <div class="thumbnail"> 
+    <img src="Bookstore_files/51wuHv30-ML.jpg" ng-src="http://ecx.images-amazon.com/images/I/51wuHv30-ML._SY344_BO1,204,203,200_.jpg"> 
+    <p class="title ng-binding">Of Mice and Men</p> 
+    <p class="price ng-binding">$6.00</p> 
+    <p class="date ng-binding">Jun 1, 1930</p> 
+    <div class="rating"> 
+  		<p class="likes ng-binding" ng-click="plusOne($index)">+0 </p> 
+      <p class="dislikes ng-binding" ng-click="minusOne($index)">-0 </p>
+</div>
+
+
+
+  </div> 
+</div><!-- end ngRepeat: product in products -->
+
+
+
+
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <h2>Available for iPhone and Android.</h2>
+        <img src="Bookstore_files/app-store.png" width="120px">
+        <img src="Bookstore_files/google-play.png" width="110px">
+      </div>
+    </div>
+
+
+    <!-- Modules -->
+    <script src="Bookstore_files/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="Bookstore_files/MainController.js"></script>
+  
+
+<script type="text/javascript" src="Bookstore_files/relay.js"></script><script src="Bookstore_files/jquery_002.js" type="text/javascript"></script><script src="Bookstore_files/jquery.js" type="text/javascript"></script></body></html>
