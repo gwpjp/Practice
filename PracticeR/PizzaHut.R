@@ -13,9 +13,18 @@ for (i in c(1,3,7,9)) {
             if (l != as.numeric(substr(y,2,2))) {
               z <- as.numeric(paste(y,l,sep=""))
               if (z %% 4 == 0) {
-                z <- as.numeric(paste(z,5,sep=""))
-                print(z)
-                
+                z <- as.numeric(paste(z,5,sep="")) #This is now the 5 digit number
+                for (m in c(2,4,6,8)) {
+                  if (m != as.numeric(substr(z,1,1)) && m != as.numeric(substr(z,3,3)) ) {
+                    u <- as.numeric(paste(z,m,sep=""))
+                    if (u %% 6 == 0) {
+                      print(u)                      
+                      
+                      
+                      
+                    }       
+                  }
+                }
                 
                 
                 
