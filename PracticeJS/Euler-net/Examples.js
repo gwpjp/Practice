@@ -55,6 +55,49 @@ var ex3 = function (){
   document.getElementById('answer_3').innerText = ReplaceNumberWithCommas(prime);
 };
 
+//Example 4: Largest Palindrome Project
+let ex4 = function () {
+  let pal = 0;
+  let temp = 0;
+  let temp2 = 0;
+
+  for (let i = 1; i < 1000; i++) {
+    for (let j = 1; j < 1000; j++) {
+      temp = i * j;
+      temp2 = temp.toString().split('').reverse().join('');
+      if (temp == temp2 && temp > pal) {
+        pal = temp;
+      }
+    }
+  }
+
+  document.getElementById('answer_4').innerText = ReplaceNumberWithCommas(pal);
+};
+
+//Example 5: Smallest number divisible by 1,...,20.
+let ex5 = function() {
+  let N = 20;
+  let done = false;
+  let cur = 2;
+  let mod = 0;
+  let temp = 2;
+
+  while (!done) {
+    if (temp > N) {
+      done = true;
+    } else {
+      if (cur % temp == 0) {
+        temp++;
+      } else {
+        temp = 2;
+        cur++;
+      }
+    }
+  }
+    document.getElementById('answer_5').innerText = ReplaceNumberWithCommas(cur);
+
+};
+
 function ReplaceNumberWithCommas(yourNumber) {
     //Seperates the components of the number
     var n= yourNumber.toString().split(".");
