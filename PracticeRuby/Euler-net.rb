@@ -29,6 +29,13 @@ end
 multiples35(1000)
 puts ''
 
+#Second Method - by direct mathematical computation
+def multiples35v2(n)
+  n-=1
+  sum2 = 3*(n/3.floor)*(n/3.floor+1)/2+5*(n/5.floor)*(n/5.floor+1)/2-15*(n/15.floor)*(n/15.floor+1)/2
+  puts "The sum of the multiples of 3 and 5 less than #{comma(n+1)} is #{comma(sum2)}"
+end
+
 #Problem 2: Even Fibonacci Numbers
 puts "Problem 2: Even Fibonacci Numbers"
 def even_fibonacci(n)
