@@ -98,6 +98,19 @@ let ex5 = function() {
 
 };
 
+//Example 6: Sum and squares
+let ex6 = function() {
+  let N = 100;
+  let sumsq = Math.pow(N*(N+1)/2,2);
+  let sqsum = 0;
+  for (let i = 1; i <= 100; i++) {
+    sqsum += Math.pow(i,2);
+  }
+
+  document.getElementById('answer_6').innerText = ReplaceNumberWithCommas(sumsq - sqsum);
+
+}
+
 function ReplaceNumberWithCommas(yourNumber) {
     //Seperates the components of the number
     var n= yourNumber.toString().split(".");

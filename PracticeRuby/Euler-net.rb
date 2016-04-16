@@ -33,7 +33,8 @@ puts ''
 def multiples35v2(n)
   n-=1
   sum2 = 3*(n/3.floor)*(n/3.floor+1)/2+5*(n/5.floor)*(n/5.floor+1)/2-15*(n/15.floor)*(n/15.floor+1)/2
-  puts "The sum of the multiples of 3 and 5 less than #{comma(n+1)} is #{comma(sum2)}"
+  n+=1
+  puts "The sum of the multiples of 3 and 5 less than #{comma(n)} is #{comma(sum2)}"
 end
 
 #Problem 2: Even Fibonacci Numbers
@@ -146,6 +147,16 @@ end
 squares_difference(100)
 
 puts ''
+
+#Second method - by direct mathematical computation
+def squares_difference_v2(n)
+  sum_squares2 = n*(n+1)*(2*n+1)/6
+  square_sum2 = (n*(n+1)/2)**2
+    puts "The difference between (1+...+#{n})\u00b2 and 1\u00b2+...+#{n}\u00b2 is #{comma(square_sum2 - sum_squares2)}."
+end
+
+squares_difference_v2(100)
+
 
 #Problem 7: 10,001st prime
 puts 'Problem 7: 10,001st Prime'
