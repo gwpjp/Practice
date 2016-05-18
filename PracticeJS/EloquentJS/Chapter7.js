@@ -351,7 +351,7 @@ SmartPlantEater.prototype.act = function(view) {
 };
 
 //Tiger
-
+//Tiger eats plant eaters when hungry
 function Tiger() {
 	this.energy = 200;
 }
