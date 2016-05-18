@@ -4,3 +4,6 @@
 "use strict";
 
 //Retry
+function primitiveMultiply(x,y) {
+  
+}
