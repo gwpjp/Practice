@@ -49,6 +49,10 @@
 	ex.ex1 = __webpack_require__(1);
 	ex.ex2 = __webpack_require__(3);
 	ex.ex3 = __webpack_require__(4);
+	ex.ex4 = __webpack_require__(5);
+	ex.ex5 = __webpack_require__(6);
+	ex.ex6 = __webpack_require__(7);
+
 
 
 	window.onload = function() {
@@ -58,7 +62,6 @@
 			var num = parseInt(/[0-9]+/.exec(el.id));
 			el.addEventListener('click',ex['ex'+num]);
 		}
-		
 
 	};
 
@@ -158,6 +161,86 @@
 	};
 
 	module.exports = ex3;
+
+/***/ },
+/* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	
+	var prettify = __webpack_require__(2);
+
+	//Example 4: Largest Palindrome Project
+	function ex4() {
+	  let pal = 0;
+	  let temp = 0;
+	  let temp2 = 0;
+
+	  for (let i = 1; i < 1000; i++) {
+	    for (let j = 1; j < 1000; j++) {
+	      temp = i * j;
+	      temp2 = temp.toString().split('').reverse().join('');
+	      if (temp == temp2 && temp > pal) {
+	        pal = temp;
+	      }
+	    }
+	  }
+
+	  document.getElementById('answer_4').innerText = prettify(pal);
+	};
+
+	module.exports = ex4;
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var prettify = __webpack_require__(2);
+
+	//Example 5: Smallest number divisible by 1,...,20.
+	function ex5() {
+	  let N = 20;
+	  let done = false;
+	  let cur = 2;
+	  let temp = 2;
+
+	  while (!done) {
+	    if (temp > N) {
+	      done = true;
+	    } else {
+	      if (cur % temp == 0) {
+	        temp++;
+	      } else {
+	        temp = 2;
+	        cur++;
+	      }
+	    }
+	  }
+	    document.getElementById('answer_5').innerText = prettify(cur);
+
+	}
+
+	module.exports = ex5;
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var prettify = __webpack_require__(2);
+
+	//Example 6: Sum and squares
+	function ex6() {
+	  let N = 100;
+	  let sumsq = Math.pow(N*(N+1)/2,2);
+	  let sqsum = 0;
+	  for (let i = 1; i <= 100; i++) {
+	    sqsum += Math.pow(i,2);
+	  }
+
+	  document.getElementById('answer_6').innerText = prettify(sumsq - sqsum);
+
+	}
+
+	module.exports = ex6;
 
 /***/ }
 /******/ ]);
