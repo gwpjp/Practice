@@ -5,7 +5,6 @@ function ex5() {
   let N = 20;
   let done = false;
   let cur = 2;
-  let mod = 0;
   let temp = 2;
 
   while (!done) {
