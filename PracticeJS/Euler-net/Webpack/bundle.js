@@ -44,6 +44,8 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
 	//Load css
 	__webpack_require__(1);
 
@@ -55,31 +57,26 @@
 	var $ = __webpack_require__(139);
 
 	//Get the functions
-	var ex={};
-	ex.ex1 = __webpack_require__(140);
-	ex.ex2 = __webpack_require__(142);
-	ex.ex3 = __webpack_require__(143);
-	ex.ex4 = __webpack_require__(144);
-	ex.ex5 = __webpack_require__(145);
-	ex.ex6 = __webpack_require__(146);
+	var questions = __webpack_require__(140);
+	var ex = {};
+	_.forEach(questions, function (el, i) {
+		ex['ex' + (i + 1)] = __webpack_require__(141)("./Ex" + (i + 1));
+	});
 
 	//Render the questions
-	var template = _.template(__webpack_require__(147));
-	var questions = __webpack_require__(148);
-	_.forEach(questions, function(el,i){
-		$('#main').append(template({'num': i+1, 'title': el}));
+	var template = _.template(__webpack_require__(149));
+	_.forEach(questions, function (el, i) {
+		$('#main').append(template({ 'num': i + 1, 'title': el }));
 	});
 
 	//Attach the function to the button
 	var inputs = $('input');
-	_.forEach(inputs, function(el) {
+	_.forEach(inputs, function (el) {
 		var num = parseInt(/[0-9]+/.exec(el.id));
-		$(el).click(function() {
-			ex['ex'+num]($('#answer_'+num));
+		$(el).click(function () {
+			ex['ex' + num]($('#answer_' + num));
 		});
 	});
-
-
 
 /***/ },
 /* 1 */
@@ -5005,18 +5002,61 @@
 
 /***/ },
 /* 140 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.', 'Find the sum of the even Fibonacci numbers less than 4,000,000.', 'Find the largest prime factor of 600,851,475,143.', 'Find the largest palindrome that is the multiple of two 3-digit numbers.', 'Smallest number divisible by 1,...,20.', 'Difference between the sum of squares and the square of the sum of the numbers 1,...,100'];
+
+	module.exports = questions;
+
+/***/ },
+/* 141 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {
-	//var $ = require ('jquery');
-	var prettify = __webpack_require__(141);
+	var map = {
+		"./Ex1": 142,
+		"./Ex1.js": 142,
+		"./Ex2": 144,
+		"./Ex2.js": 144,
+		"./Ex3": 145,
+		"./Ex3.js": 145,
+		"./Ex4": 146,
+		"./Ex4.js": 146,
+		"./Ex5": 147,
+		"./Ex5.js": 147,
+		"./Ex6": 148,
+		"./Ex6.js": 148
+	};
+	function webpackContext(req) {
+		return __webpack_require__(webpackContextResolve(req));
+	};
+	function webpackContextResolve(req) {
+		return map[req] || (function() { throw new Error("Cannot find module '" + req + "'.") }());
+	};
+	webpackContext.keys = function webpackContextKeys() {
+		return Object.keys(map);
+	};
+	webpackContext.resolve = webpackContextResolve;
+	module.exports = webpackContext;
+	webpackContext.id = 141;
 
-	function ex1(node){
+
+/***/ },
+/* 142 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	//var $ = require ('jquery');
+	var prettify = __webpack_require__(143);
+
+	function ex1(node) {
 		var sum = 0;
 
-		for(let i = 0; i < 1000; i++) {
-			if (i%3===0 || i%5===0) {
-			  sum+=i;
+		for (var i = 0; i < 1000; i++) {
+			if (i % 3 === 0 || i % 5 === 0) {
+				sum += i;
 			}
 		}
 
@@ -5027,12 +5067,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ },
-/* 141 */
+/* 143 */
 /***/ function(module, exports) {
+
+	"use strict";
 
 	function prettify(yourNumber) {
 	    //Seperates the components of the number
-	    var n= yourNumber.toString().split(".");
+	    var n = yourNumber.toString().split(".");
 	    //Comma-fies the first part
 	    n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	    //Combines the two sections
@@ -5042,60 +5084,62 @@
 	module.exports = prettify;
 
 /***/ },
-/* 142 */
+/* 144 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {//var $ = require ('jquery');
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var prettify = __webpack_require__(141);
+	//var $ = require ('jquery');
 
-	function ex2(node){
+	var prettify = __webpack_require__(143);
+
+	function ex2(node) {
 	  var pre = 1;
 	  var cur = 2;
 	  var temp = 0;
 	  var total = 0;
 
-	  while(cur < 4000000){
-	    if(cur%2 === 0) {
-	      total+=cur;
+	  while (cur < 4000000) {
+	    if (cur % 2 === 0) {
+	      total += cur;
 	    }
 	    temp = cur;
-	    cur+=pre;
+	    cur += pre;
 	    pre = temp;
 	  }
 	  $(node).html(prettify(total));
 	}
 
 	module.exports = ex2;
-
-
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ },
-/* 143 */
+/* 145 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {//var $ = require ('jquery');
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var prettify = __webpack_require__(141);
+	//var $ = require ('jquery');
 
-	function ex3(node){
+	var prettify = __webpack_require__(143);
+
+	function ex3(node) {
 	  var n = Math.sqrt(600851475143); //This is the highest you have to check.
 	  var primeCheck = 0;
 	  var prime = 0;
 	  var m = 0;
 
-	  for (let i = 1; i < n; i++) {
+	  for (var i = 1; i < n; i++) {
 	    //First, check to see if 'i' is prime.
 	    m = Math.sqrt(n);
-	    for (let j = 1; j < m; j++){
-	      if (i%j === 0) {
+	    for (var j = 1; j < m; j++) {
+	      if (i % j === 0) {
 	        primeCheck = j;
 	      }
 	    }
 	    /*If it is prime, then its largest divisor is 1,
 	    so use this to check if it divides our number.*/
-	    if (primeCheck === 1 && 600851475143%i === 0){
+	    if (primeCheck === 1 && 600851475143 % i === 0) {
 	      prime = i;
 	    }
 	  }
@@ -5107,21 +5151,23 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ },
-/* 144 */
+/* 146 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {//var $ = require ('jquery');
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
 
-	var prettify = __webpack_require__(141);
+	//var $ = require ('jquery');
+
+	var prettify = __webpack_require__(143);
 
 	//Example 4: Largest Palindrome Project
 	function ex4(node) {
-	  let pal = 0;
-	  let temp = 0;
-	  let temp2 = 0;
+	  var pal = 0;
+	  var temp = 0;
+	  var temp2 = 0;
 
-	  for (let i = 1; i < 1000; i++) {
-	    for (let j = 1; j < 1000; j++) {
+	  for (var i = 1; i < 1000; i++) {
+	    for (var j = 1; j < 1000; j++) {
 	      temp = i * j;
 	      temp2 = temp.toString().split('').reverse().join('');
 	      if (temp == temp2 && temp > pal) {
@@ -5137,18 +5183,20 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ },
-/* 145 */
+/* 147 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {//var $ = require ('jquery');
-	var prettify = __webpack_require__(141);
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	//var $ = require ('jquery');
+	var prettify = __webpack_require__(143);
 
 	//Example 5: Smallest number divisible by 1,...,20.
 	function ex5(node) {
-	  let N = 20;
-	  let done = false;
-	  let cur = 2;
-	  let temp = 2;
+	  var N = 20;
+	  var done = false;
+	  var cur = 2;
+	  var temp = 2;
 
 	  while (!done) {
 	    if (temp > N) {
@@ -5164,59 +5212,44 @@
 	  }
 
 	  $(node).html(prettify(cur));
-
 	}
 
 	module.exports = ex5;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ },
-/* 146 */
+/* 148 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {//var $ = require ('jquery');
-	var prettify = __webpack_require__(141);
+	/* WEBPACK VAR INJECTION */(function($) {'use strict';
+
+	//var $ = require ('jquery');
+	var prettify = __webpack_require__(143);
 
 	//Example 6: Sum and squares
 	function ex6(node) {
-	  let N = 100;
-	  let sumsq = Math.pow(N*(N+1)/2,2);
-	  let sqsum = 0;
-	  for (let i = 1; i <= 100; i++) {
-	    sqsum += Math.pow(i,2);
+	  var N = 100;
+	  var sumsq = Math.pow(N * (N + 1) / 2, 2);
+	  var sqsum = 0;
+	  for (var i = 1; i <= 100; i++) {
+	    sqsum += Math.pow(i, 2);
 	  }
 
 	  $(node).html(prettify(sumsq - sqsum));
-
 	}
 
 	module.exports = ex6;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(139)))
 
 /***/ },
-/* 147 */
+/* 149 */
 /***/ function(module, exports) {
 
-	var template = '<p class = "example"><strong>Example #<%= num %></strong>: <%= title %> </p>' +  
-	    '<p>Answer: <span id="answer_<%= num %>"></span></p>' + 
-	    '<input id="b-<%= num %>" type="button" value="Answer the question." />';
+	'use strict';
+
+	var template = '<p class = "example"><strong>Example #<%= num %></strong>: <%= title %> </p>' + '<p>Answer: <span id="answer_<%= num %>"></span></p>' + '<input id="b-<%= num %>" type="button" value="Answer the question." />';
 
 	module.exports = template;
-
-/***/ },
-/* 148 */
-/***/ function(module, exports) {
-
-	var questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.',
-	'Find the sum of the even Fibonacci numbers less than 4,000,000.',
-	'Find the largest prime factor of 600,851,475,143.',
-	'Find the largest palindrome that is the multiple of two 3-digit numbers.',
-	'Smallest number divisible by 1,...,20.',
-	'Difference between the sum of squares and the square of the sum of the numbers 1,...,100'
-
-	];
-
-	module.exports = questions;
 
 /***/ }
 /******/ ]);

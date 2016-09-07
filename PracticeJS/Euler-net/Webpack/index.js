@@ -8,18 +8,17 @@ _.template = require('lodash/template');
 //Load jquery.  Not actually necessary because of webpack plugin
 var $ = require('jquery');
 
+//Get the data for the questions
+var questions = require('./data');
+
 //Get the functions
 var ex={};
-ex.ex1 = require('./exercises/Ex1');
-ex.ex2 = require('./exercises/Ex2');
-ex.ex3 = require('./exercises/Ex3');
-ex.ex4 = require('./exercises/Ex4');
-ex.ex5 = require('./exercises/Ex5');
-ex.ex6 = require('./exercises/Ex6');
+_.forEach(questions, function(el,i){
+	ex['ex'+(i+1)] = require('./exercises/Ex'+(i+1));
+});
 
 //Render the questions
 var template = _.template(require('./template'));
-var questions = require('./data');
 _.forEach(questions, function(el,i){
 	$('#main').append(template({'num': i+1, 'title': el}));
 });
