@@ -1,7 +1,8 @@
+//var $ = require ('jquery');
 
 var prettify = require('../prettify');
 
-function ex3(){
+function ex3(node){
   var n = Math.sqrt(600851475143); //This is the highest you have to check.
   var primeCheck = 0;
   var prime = 0;
@@ -22,7 +23,7 @@ function ex3(){
     }
   }
 
-  document.getElementById('answer_3').innerText = prettify(prime);
+  $(node).html(prettify(prime));
 };
 
 module.exports = ex3;

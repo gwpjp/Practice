@@ -1,11 +1,11 @@
+//var $ = require ('jquery');
 var prettify = require('../prettify');
 
 //Example 5: Smallest number divisible by 1,...,20.
-function ex5() {
+function ex5(node) {
   let N = 20;
   let done = false;
   let cur = 2;
-  let mod = 0;
   let temp = 2;
 
   while (!done) {
@@ -20,7 +20,8 @@ function ex5() {
       }
     }
   }
-    document.getElementById('answer_5').innerText = prettify(cur);
+
+  $(node).html(prettify(cur));
 
 }
 
