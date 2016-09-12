@@ -1,8 +1,7 @@
 //var $ = require ('jquery');
+import prettify from '../prettify';
 
-var prettify = require('../prettify');
-
-function ex2(node){
+export default function ex2(node){
   var pre = 1;
   var cur = 2;
   var temp = 0;
@@ -19,5 +18,4 @@ function ex2(node){
   $(node).html(prettify(total));
 }
 
-module.exports = ex2;
 

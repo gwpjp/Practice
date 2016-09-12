@@ -1,4 +1,4 @@
-function prettify(yourNumber) {
+export default function prettify(yourNumber) {
     //Seperates the components of the number
     var n= yourNumber.toString().split(".");
     //Comma-fies the first part
@@ -7,4 +7,3 @@ function prettify(yourNumber) {
     return n.join(".");
 }
 
-module.exports = prettify;

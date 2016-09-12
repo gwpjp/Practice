@@ -1,25 +1,34 @@
 //Load css
 require('./style.css');
 
-//Load lodash functions
-var _ = {};
-_.forEach = require('lodash/forEach');
-_.template = require('lodash/template');
-//Load jquery.  Not actually necessary because of webpack plugin
+//Load lodash functions.  Not actually necessary because of webpack plugin settings.
+var _ = require('lodash');
+//Load jquery.  Not actually necessary because of webpack plugin settings.
 var $ = require('jquery');
 
 //Get the data for the questions
-var questions = require('./data');
+import questions from './data';
+import questionTemplate from './template';
 
 //Get the functions
+import ex1 from './exercises/Ex1';
+import ex2 from './exercises/Ex2';
+import ex3 from './exercises/Ex3';
+import ex4 from './exercises/Ex4';
+import ex5 from './exercises/Ex5';
+import ex6 from './exercises/Ex6';
+
 var ex={};
-_.forEach(questions, function(el,i){
-	ex['ex'+(i+1)] = require('./exercises/Ex'+(i+1));
-});
+ex.ex1 = ex1;
+ex.ex2 = ex2;
+ex.ex3 = ex3;
+ex.ex4 = ex4;
+ex.ex5 = ex5;
+ex.ex6 = ex6;
 
 //Render the questions
-var template = _.template(require('./template'));
-_.forEach(questions, function(el,i){
+var template = _.template(questionTemplate);
+_.forEach(questions,function(el,i){
 	$('#main').append(template({'num': i+1, 'title': el}));
 });
 

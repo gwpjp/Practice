@@ -1,8 +1,8 @@
 //var $ = require ('jquery');
-var prettify = require('../prettify');
+import prettify from '../prettify';
 
 //Example 5: Smallest number divisible by 1,...,20.
-function ex5(node) {
+export default function ex5(node) {
   let N = 20;
   let done = false;
   let cur = 2;
@@ -24,5 +24,3 @@ function ex5(node) {
   $(node).html(prettify(cur));
 
 }
-
-module.exports = ex5;

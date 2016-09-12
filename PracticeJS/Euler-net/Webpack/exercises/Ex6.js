@@ -1,8 +1,8 @@
 //var $ = require ('jquery');
-var prettify = require('../prettify');
+import prettify from '../prettify';
 
 //Example 6: Sum and squares
-function ex6(node) {
+export default function ex6(node) {
   let N = 100;
   let sumsq = Math.pow(N*(N+1)/2,2);
   let sqsum = 0;
@@ -13,5 +13,3 @@ function ex6(node) {
   $(node).html(prettify(sumsq - sqsum));
 
 }
-
-module.exports = ex6;

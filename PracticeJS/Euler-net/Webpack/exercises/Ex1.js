@@ -1,8 +1,8 @@
 
 //var $ = require ('jquery');
-var prettify = require('../prettify');
+import prettify from '../prettify';
 
-function ex1(node){
+export default function ex1(node){
 	var sum = 0;
 
 	for(let i = 0; i < 1000; i++) {
@@ -14,4 +14,3 @@ function ex1(node){
 	$(node).html(prettify(sum));
 }
 
-module.exports = ex1;

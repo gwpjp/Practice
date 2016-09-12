@@ -14,7 +14,7 @@ module.exports = {
                 exclude: [/node_modules/],
                 loader: 'babel-loader',
                 query: {
-                  presets: ['es2015', 'react']
+                  presets: [["es2015", { "modules": false }], 'react']
                 }
             }
         ]
@@ -25,12 +25,16 @@ module.exports = {
     },
     //loads jQuery from a script
     externals: {
-        jquery: 'jQuery'
+        jquery: 'jQuery',
+        lodash: '_'
     },
     // automatically loads jQuery if it sees a $ 
     plugins: [
         new webpack.ProvidePlugin({
             $: 'jquery',
+        }),
+        new webpack.ProvidePlugin({
+            _: 'lodash',
         })
     ]
 };
