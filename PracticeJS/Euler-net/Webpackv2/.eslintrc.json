@@ -1,11 +1,22 @@
 {
+  "env": {
+    "jquery": true,
+    "commonjs": true
+  },
   "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         }
-	},
+  },
+  "globals": {
+    "jQuery": true,
+    "$": true,
+    "_": true
+  },
+  "extends": "airbnb", 
   "rules": {
+    "indent": ["error", 2]
   }
 }
