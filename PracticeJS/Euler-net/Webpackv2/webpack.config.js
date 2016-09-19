@@ -17,6 +17,17 @@ const common = {
   entry: {
     app: PATHS.app
   },
+  module: {
+    preLoaders: [
+      {
+        test: /\.js?$/,
+        loaders: ['eslint'],
+        exclude: /node_modules/,
+        // define an include so we check just the files we need
+        include: PATHS.app
+      }
+    ]
+  },
   output: {
     path: PATHS.build,
     filename: '[name].js'
@@ -41,6 +52,10 @@ switch(process.env.npm_lifecycle_event) {
       {
         devtool: 'source-map'
       },
+      parts.setFreeVariable(
+        'process.env.NODE_ENV',
+        'production'
+      ),
       parts.minify(),
       parts.setupCSS(PATHS.app)
     );
