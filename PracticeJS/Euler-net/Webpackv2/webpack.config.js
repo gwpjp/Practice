@@ -37,7 +37,7 @@ const common = {
       title: 'Euler-net Webpack pt2',
       template: 'template.html'
     })
-  ],
+  ]
 
 };
 
