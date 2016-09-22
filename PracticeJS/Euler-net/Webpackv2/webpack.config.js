@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge');
 const validate = require('webpack-validator');
 const parts = require('./libs/parts');
@@ -7,6 +6,7 @@ const externals = require('./libs/externals');
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
+  style: path.join(__dirname, 'app', 'main.css'),
   build: path.join(__dirname, 'build')
 };
 
@@ -15,6 +15,7 @@ const common = {
   // We'll be using the latter form given it's
   // convenient with more complex configurations.
   entry: {
+    style: PATHS.style,
     app: PATHS.app
   },
   module: {
@@ -30,15 +31,8 @@ const common = {
   },
   output: {
     path: PATHS.build,
-    filename: '[name].js'
+    filename: '[name].[chunkhash].js'
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Euler-net Webpack pt2',
-      template: 'template.html'
-    })
-  ]
-
 };
 
 var config;
@@ -57,7 +51,9 @@ switch(process.env.npm_lifecycle_event) {
         'production'
       ),
       parts.minify(),
-      parts.setupCSS(PATHS.app)
+      parts.setupHTML(),
+      parts.extractCSS(PATHS.style),
+      parts.clean(PATHS.build)
     );
     break;
   default:
@@ -67,7 +63,12 @@ switch(process.env.npm_lifecycle_event) {
       {
         devtool: 'eval-source-map'
       },
-      parts.setupCSS(PATHS.app),
+      parts.setFreeVariable(
+        'process.env.NODE_ENV',
+        'development'
+      ),
+      parts.setupHTML(),
+      parts.setupCSS(PATHS.style),
       parts.devServer({
         // Customize host/port here if needed
         host: process.env.HOST,

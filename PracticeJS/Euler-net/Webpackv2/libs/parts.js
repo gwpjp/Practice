@@ -1,4 +1,8 @@
 const webpack = require('webpack');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 
 exports.setupCSS = function(paths) {
   return {
@@ -14,6 +18,39 @@ exports.setupCSS = function(paths) {
   };
 }
 
+exports.extractCSS = function(paths) {
+  return {
+    module: {
+      loaders: [
+        // Extract CSS during build
+        {
+          test: /\.css$/,
+          loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' }),
+          include: paths
+        }
+      ]
+    },
+    plugins: [
+      // Output extracted CSS to a file
+      new ExtractTextPlugin('[name].[chunkhash].css')
+    ]
+  };
+}
+
+exports.setupHTML = function() {
+  return {
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: 'Euler-net Webpack pt2',
+        template: 'template.html',
+      })
+    ]
+  };
+}
+
+
+
+
 exports.setFreeVariable = function(key, value) {
   const env = {};
   env[key] = JSON.stringify(value);
@@ -21,6 +58,19 @@ exports.setFreeVariable = function(key, value) {
   return {
     plugins: [
       new webpack.DefinePlugin(env)
+    ]
+  };
+}
+
+exports.clean = function(path) {
+  return {
+    plugins: [
+      new CleanWebpackPlugin([path], {
+        // Without `root` CleanWebpackPlugin won't point to our
+        // project and will fail to work.
+        root: process.cwd(),
+        exclude: ['index.html']
+      })
     ]
   };
 }

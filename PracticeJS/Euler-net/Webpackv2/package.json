@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "clean-webpack-plugin": "^0.1.10",
     "css-loader": "^0.25.0",
     "eslint": "^3.5.0",
     "eslint-config-airbnb": "^11.1.0",
@@ -19,6 +20,7 @@
     "eslint-plugin-import": "^1.15.0",
     "eslint-plugin-jsx-a11y": "^2.2.2",
     "eslint-plugin-react": "^6.2.2",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
     "html-webpack-plugin": "^2.22.0",
     "style-loader": "^0.13.1",
     "uglify-js": "^2.7.3",
