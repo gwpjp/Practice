@@ -29,10 +29,7 @@ const common = {
       }
     ]
   },
-  output: {
-    path: PATHS.build,
-    filename: '[name].[chunkhash].js'
-  },
+  
 };
 
 var config;
@@ -44,6 +41,10 @@ switch(process.env.npm_lifecycle_event) {
   case 'stats':
     config = merge(
       common,
+      {output: {
+        path: PATHS.build,
+        filename: '[name].[chunkhash].js'
+      }},
       externals.loadExternals(),
       {
         devtool: 'source-map'
@@ -62,6 +63,10 @@ switch(process.env.npm_lifecycle_event) {
   default:
     config = merge(
       common,
+      {output: {
+        path: PATHS.build,
+        filename: '[name].js'
+      }},
       externals.loadExternals(),
       {
         devtool: 'eval-source-map'
