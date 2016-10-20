@@ -26,6 +26,14 @@ const common = {
         exclude: /node_modules/,
         // define an include so we check just the files we need
         include: PATHS.app
+      },
+      {
+        test: /\.(jpg|png)$/,
+        loaders: [
+          'url?limit=25000',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+          ],
+        include: PATHS.app
       }
     ]
   },
