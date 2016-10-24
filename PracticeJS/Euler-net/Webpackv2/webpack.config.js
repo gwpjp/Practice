@@ -31,7 +31,7 @@ const common = {
         test: /\.(jpg|png)$/,
         loaders: [
           'url?limit=25000',
-          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+          'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
           ],
         include: PATHS.app
       }

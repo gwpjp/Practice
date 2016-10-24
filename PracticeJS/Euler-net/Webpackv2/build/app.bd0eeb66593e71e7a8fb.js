@@ -69,23 +69,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ exports["a"] = prettify;
-function prettify(yourNumber) {
-  // Seperates the components of the number
-  const n = yourNumber.toString().split('.');
-  // Comma-fies the first part
-  n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  // Combines the two sections
-  return n.join('.');
-}
-
-
-
-/***/ },
-/* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-"use strict";
 const questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.',
 'Find the sum of the even Fibonacci numbers less than 4,000,000.',
 'Find the largest prime factor of 600,851,475,143.',
@@ -99,17 +82,12 @@ const questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.',
 
 
 /***/ },
-/* 2 */
+/* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__prettify__ = __webpack_require__(0);
 /* harmony export (immutable) */ exports["a"] = ex1;
-
-// var $ = require ('jquery');
-
-
-function ex1(node) {
+function ex1() {
   let sum = 0;
 
   for (let i = 0; i < 1000; i += 1) {
@@ -118,22 +96,18 @@ function ex1(node) {
     }
   }
 
-  $(node).html(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__prettify__["a" /* default */])(sum));
+  return sum;
 }
 
 
 
 /***/ },
-/* 3 */
+/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__prettify__ = __webpack_require__(0);
 /* harmony export (immutable) */ exports["a"] = ex2;
-// var $ = require ('jquery');
-
-
-function ex2(node) {
+function ex2() {
   let pre = 1;
   let cur = 2;
   let temp = 0;
@@ -147,21 +121,18 @@ function ex2(node) {
     cur += pre;
     pre = temp;
   }
-  $(node).html(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__prettify__["a" /* default */])(total));
+
+  return total;
 }
 
 
 /***/ },
-/* 4 */
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__prettify__ = __webpack_require__(0);
 /* harmony export (immutable) */ exports["a"] = ex3;
-// var $ = require ('jquery');
-
-
-function ex3(node) {
+function ex3() {
   const n = Math.sqrt(600851475143); // This is the highest you have to check.
   let primeCheck = 0;
   let prime = 0;
@@ -191,23 +162,19 @@ function ex3(node) {
     }
   }
 
-  $(node).html(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__prettify__["a" /* default */])(prime));
+  return prime;
 }
 
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__prettify__ = __webpack_require__(0);
 /* harmony export (immutable) */ exports["a"] = ex4;
-// var $ = require ('jquery');
-
-
 // Example 4: Largest Palindrome Project
-function ex4(node) {
+function ex4() {
   let pal = 0;
   let temp = 0;
   let temp2 = 0;
@@ -222,22 +189,18 @@ function ex4(node) {
     }
   }
 
-  $(node).html(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__prettify__["a" /* default */])(pal));
+  return pal;
 }
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__prettify__ = __webpack_require__(0);
 /* harmony export (immutable) */ exports["a"] = ex5;
-// var $ = require ('jquery');
-
-
 // Example 5: Smallest number divisible by 1,...,20.
-function ex5(node) {
+function ex5() {
   const N = 20;
   let done = false;
   let cur = 2;
@@ -253,7 +216,26 @@ function ex5(node) {
       cur += 1;
     }
   }
-  $(node).html(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__prettify__["a" /* default */])(cur));
+  return cur;
+}
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ exports["a"] = ex6;
+// Example 6: Sum and squares
+function ex6() {
+  const N = 100;
+  const sumsq = Math.pow((N / 2) * (N + 1), 2);
+  let sqsum = 0;
+  for (let i = 1; i <= 100; i += 1) {
+    sqsum += Math.pow(i, 2);
+  }
+
+  return sumsq - sqsum;
 }
 
 
@@ -262,22 +244,16 @@ function ex5(node) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__prettify__ = __webpack_require__(0);
-/* harmony export (immutable) */ exports["a"] = ex6;
-// var $ = require ('jquery');
-
-
-// Example 6: Sum and squares
-function ex6(node) {
-  const N = 100;
-  const sumsq = Math.pow((N / 2) * (N + 1), 2);
-  let sqsum = 0;
-  for (let i = 1; i <= 100; i += 1) {
-    sqsum += Math.pow(i, 2);
-  }
-
-  $(node).html(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__prettify__["a" /* default */])(sumsq - sqsum));
+/* harmony export (immutable) */ exports["a"] = prettify;
+function prettify(yourNumber) {
+  // Seperates the components of the number
+  const n = yourNumber.toString().split('.');
+  // Comma-fies the first part
+  n[0] = n[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  // Combines the two sections
+  return n.join('.');
 }
+
 
 
 /***/ },
@@ -285,9 +261,9 @@ function ex6(node) {
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-const questionTemplate = '<p class = "example"><strong>Example #<%= num %></strong>: <%= title %> </p>' +
+const questionTemplate = '<div id = "ex_<%= num %>"<p class = "example"><strong>Example #<%= num %></strong>: <%= title %> </p>' +
     '<p>Answer: <span id="answer_<%= num %>"></span></p>' +
-    '<input id="b-<%= num %>" type="button" value="Answer the question." />';
+    '<input id="b-<%= num %>" type="button" value="Answer the question." /></div><br>';
 
 /* harmony default export */ exports["a"] = questionTemplate;
 
@@ -309,15 +285,17 @@ module.exports = jQuery;
 /***/ function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__exercises_Ex1__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__exercises_Ex2__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__exercises_Ex3__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__exercises_Ex4__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exercises_Ex5__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__exercises_Ex6__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__template__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__data__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__exercises_Ex1__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__exercises_Ex2__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__exercises_Ex3__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__exercises_Ex4__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__exercises_Ex5__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__exercises_Ex6__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__prettify__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__template__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__data__ = __webpack_require__(0);
 // Get the functions
+
 
 
 
@@ -345,9 +323,9 @@ ex.ex5 = __WEBPACK_IMPORTED_MODULE_4__exercises_Ex5__["a" /* default */];
 ex.ex6 = __WEBPACK_IMPORTED_MODULE_5__exercises_Ex6__["a" /* default */];
 
 // Render the questions
-const template = _.template(__WEBPACK_IMPORTED_MODULE_6__template__["a" /* default */]);
+const template = _.template(__WEBPACK_IMPORTED_MODULE_7__template__["a" /* default */]);
 
-_.forEach(__WEBPACK_IMPORTED_MODULE_7__data__["a" /* default */], (el, i) => {
+_.forEach(__WEBPACK_IMPORTED_MODULE_8__data__["a" /* default */], (el, i) => {
   $('#main').append(template({ num: i + 1, title: el }));
 });
 
@@ -358,7 +336,8 @@ _.forEach(inputs, (el) => {
   const num = parseInt(/[0-9]+/.exec(el.id), 10);
 
   $(el).click(() => {
-    ex[`ex${num}`]($(`#answer_${num}`));
+    const ans = ex[`ex${num}`]($(`#answer_${num}`));
+    $(`#answer_${num}`).html(__webpack_require__.i(__WEBPACK_IMPORTED_MODULE_6__prettify__["a" /* default */])(ans));
   });
 });
 
@@ -366,4 +345,4 @@ _.forEach(inputs, (el) => {
 
 /***/ }
 /******/ ]);
-//# sourceMappingURL=app.559351b3775cc5d0b77c.js.map
+//# sourceMappingURL=app.bd0eeb66593e71e7a8fb.js.map

@@ -91,15 +91,17 @@ exports.clean = function(path) {
 }
 
 exports.minify = function() {
-  return {
-    plugins: [
-      // new webpack.optimize.UglifyJsPlugin({
-      //   compress: {
-      //     warnings: false
-      //   }
-      // })
-    ]
-  };
+  // return {
+    
+  //   plugins: [
+  //     new webpack.optimize.UglifyJsPlugin({
+  //       mangle: false,
+  //       compress: {
+  //         warnings: false
+  //       }
+  //     })
+  //   ]
+  // };
 }
 
 exports.devServer = function(options) {

@@ -1,8 +1,5 @@
-// var $ = require ('jquery');
-import prettify from '../prettify';
-
 // Example 4: Largest Palindrome Project
-export default function ex4(node) {
+export default function ex4() {
   let pal = 0;
   let temp = 0;
   let temp2 = 0;
@@ -17,5 +14,5 @@ export default function ex4(node) {
     }
   }
 
-  $(node).html(prettify(pal));
+  return pal;
 }

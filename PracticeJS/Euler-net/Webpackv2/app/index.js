@@ -5,6 +5,7 @@ import ex3 from './exercises/Ex3';
 import ex4 from './exercises/Ex4';
 import ex5 from './exercises/Ex5';
 import ex6 from './exercises/Ex6';
+import prettify from './prettify';
 
 // Get the data for the questions
 import questionTemplate from './template';
@@ -39,7 +40,8 @@ _.forEach(inputs, (el) => {
   const num = parseInt(/[0-9]+/.exec(el.id), 10);
 
   $(el).click(() => {
-    ex[`ex${num}`]($(`#answer_${num}`));
+    const ans = ex[`ex${num}`]($(`#answer_${num}`));
+    $(`#answer_${num}`).html(prettify(ans));
   });
 });
 
