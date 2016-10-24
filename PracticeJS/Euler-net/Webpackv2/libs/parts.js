@@ -3,6 +3,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack-plugin');
+const BabiliPlugin = require("babili-webpack-plugin");
+
 
 
 exports.setupCSS = function(paths) {
@@ -91,6 +93,13 @@ exports.clean = function(path) {
 }
 
 exports.minify = function() {
+  return {
+    plugins: [
+      new BabiliPlugin()
+    ]
+  }
+
+
   // return {
     
   //   plugins: [

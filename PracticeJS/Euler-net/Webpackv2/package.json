@@ -13,6 +13,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babili": "0.0.7",
+    "babili-webpack-plugin": "0.0.5",
     "clean-webpack-plugin": "^0.1.10",
     "css-loader": "^0.25.0",
     "eslint": "^3.5.0",
