@@ -5,8 +5,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 const BabiliPlugin = require("babili-webpack-plugin");
 
-
-
 exports.setupCSS = function(paths) {
   return {
     module: {
