@@ -1,3 +1,4 @@
+// Example 3: Largest prime
 export default function ex3() {
   const n = Math.sqrt(600851475143); // This is the highest you have to check.
   let primeCheck = 0;

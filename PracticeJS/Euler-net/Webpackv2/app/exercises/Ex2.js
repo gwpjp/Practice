@@ -1,3 +1,4 @@
+// Example 2: Sums of Fibonacci
 export default function ex2() {
   let pre = 1;
   let prepre = 1;
