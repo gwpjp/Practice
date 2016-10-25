@@ -22,7 +22,7 @@ const common = {
     preLoaders: [
       {
         test: /\.js?$/,
-        loaders: ['eslint'],
+        loaders: ['babel-loader','eslint'],
         exclude: /node_modules/,
         // define an include so we check just the files we need
         include: PATHS.app

@@ -91,24 +91,23 @@ exports.clean = function(path) {
 }
 
 exports.minify = function() {
-  return {
-    plugins: [
-      new BabiliPlugin()
-    ]
-  }
-
-
+  //This can be used if Babel is not used to transform the original code.
   // return {
-    
   //   plugins: [
-  //     new webpack.optimize.UglifyJsPlugin({
-  //       mangle: false,
-  //       compress: {
-  //         warnings: false
-  //       }
-  //     })
+  //     new BabiliPlugin()
   //   ]
-  // };
+  // }
+
+  // This can be used if Babel is used to transform the original code to ES5.
+  return { 
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
+    ]
+  };
 }
 
 exports.devServer = function(options) {
