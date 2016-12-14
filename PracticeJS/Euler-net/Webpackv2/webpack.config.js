@@ -1,6 +1,5 @@
 const path = require('path');
 const merge = require('webpack-merge');
-const validate = require('webpack-validator');
 const parts = require('./libs/parts');
 const externals = require('./libs/externals');
 
@@ -113,9 +112,5 @@ switch(process.env.npm_lifecycle_event) {
       })
     );
 }
-
-// module.exports = validate(config, {
-//   quiet: true
-// });
 
 module.exports = config;
