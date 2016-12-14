@@ -24,10 +24,10 @@ const common = {
         use: [
           {
             loader: 'babel-loader'
+          },
+          {
+            loader: 'eslint-loader'
           }
-          // {
-          //   loader: 'eslint'
-          // }
         ],
         enforce: 'pre',
         exclude: /node_modules/,

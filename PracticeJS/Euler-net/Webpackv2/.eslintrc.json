@@ -15,7 +15,7 @@
     "$": true,
     "_": true
   },
-  "extends": "airbnb", 
+  "extends": "airbnb/base", 
   "rules": {
     "indent": ["error", 2]
   }
