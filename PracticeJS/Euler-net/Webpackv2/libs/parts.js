@@ -8,10 +8,17 @@ const BabiliPlugin = require("babili-webpack-plugin");
 exports.setupCSS = function(paths) {
   return {
     module: {
-      loaders: [
+      rules: [
         {
           test: /\.css$/,
-          loaders: ['style', 'css'],
+          use: [
+            {
+              loader: 'style-loader'
+            },
+            {
+              loader: 'css-loader'
+            }
+          ],
           include: paths
         }
       ]
@@ -22,18 +29,25 @@ exports.setupCSS = function(paths) {
 exports.extractCSS = function(paths) {
   return {
     module: {
-      loaders: [
+      rules: [
         // Extract CSS during build
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract({ fallbackLoader: 'style-loader', loader: 'css-loader' }),
+          loader: ExtractTextPlugin.extract({ 
+            fallbackLoader: 'style-loader',
+            loader: 'css-loader' 
+          }),
           include: paths
         }
       ]
     },
     plugins: [
       // Output extracted CSS to a file
-      new ExtractTextPlugin('[name].[chunkhash].css')
+      new ExtractTextPlugin({
+        filename: '[name].[chunkhash].css',
+        disable: false,
+        allChunks: true
+      })
     ]
   };
 }

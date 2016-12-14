@@ -19,20 +19,41 @@ const common = {
     app: PATHS.app
   },
   module: {
-    preLoaders: [
+    rules: [
       {
         test: /\.js?$/,
-        loaders: ['babel-loader','eslint'],
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+          // {
+          //   loader: 'eslint'
+          // }
+        ],
+        enforce: 'pre',
         exclude: /node_modules/,
         // define an include so we check just the files we need
         include: PATHS.app
       },
       {
         test: /\.(jpg|png)$/,
-        loaders: [
-          'url?limit=25000',
-          'image-webpack?{optimizationLevel: 7, interlaced: false, pngquant:{quality: "65-90", speed: 4}, mozjpeg: {quality: 65}}'
-          ],
+        use: [ 
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 25000
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              optimizationLevel: 7,
+              interlaced: false,
+              pngquant:{quality: "65-90", speed: 4}, 
+              mozjpeg: {quality: 65}
+            }
+          }
+        ],
         include: PATHS.app
       }
     ]
@@ -93,6 +114,8 @@ switch(process.env.npm_lifecycle_event) {
     );
 }
 
-module.exports = validate(config, {
-  quiet: true
-});
+// module.exports = validate(config, {
+//   quiet: true
+// });
+
+module.exports = config;
