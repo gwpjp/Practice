@@ -1,5 +1,7 @@
 {
+	"plugins": ["transform-exponentiation-operator"],
 	presets: [
 		["es2015", {"modules": false}]
 	]
 }
+
