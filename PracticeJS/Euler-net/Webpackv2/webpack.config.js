@@ -45,13 +45,19 @@ const common = {
           },
           {
             loader: 'image-webpack-loader',
-            options: {
-              optimizationLevel: 7,
-              interlaced: false,
-              pngquant:{quality: "65-90", speed: 4}, 
-              mozjpeg: {quality: 65}
+            query: {
+              mozjpeg: {
+                progressive: true,
+              },
+              gifsicle: {
+                interlaced: true,
+              },
+              optipng: {
+                optimizationLevel: 7,
+              }
             }
           }
+          
         ],
         include: PATHS.app
       }
