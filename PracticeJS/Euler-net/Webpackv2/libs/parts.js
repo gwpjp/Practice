@@ -5,6 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 const BabiliPlugin = require("babili-webpack-plugin");
 
+//For inlining CSS
 exports.setupCSS = function(paths) {
   return {
     module: {
@@ -26,6 +27,7 @@ exports.setupCSS = function(paths) {
   };
 }
 
+//For extracting CSS into a separate file
 exports.extractCSS = function(paths) {
   return {
     module: {
@@ -33,7 +35,7 @@ exports.extractCSS = function(paths) {
         // Extract CSS during build
         {
           test: /\.css$/,
-          loader: ExtractTextPlugin.extract({ 
+          use: ExtractTextPlugin.extract({ 
             fallback: 'style-loader',
             use: 'css-loader' 
           }),

@@ -10,12 +10,13 @@ const PATHS = {
 };
 
 const common = {
+  context: __dirname,  //Not necessary because Webpack defaults to current working directory
   // Entry accepts a path or an object of entries.
   // We'll be using the latter form given it's
   // convenient with more complex configurations.
   entry: {
     style: PATHS.style,
-    app: PATHS.app
+    app: path.join(PATHS.app,'index.js')  //Not necessary to append index.js because Node defaults to it
   },
   module: {
     rules: [
@@ -30,12 +31,13 @@ const common = {
           }
         ],
         enforce: 'pre',
+        // define an exclude to ignore node modules
         exclude: /node_modules/,
         // define an include so we check just the files we need
         include: PATHS.app
       },
       {
-        test: /\.(jpg|png)$/,
+        test: /\.(jpg|png|gif)$/,
         use: [ 
           {
             loader: 'url-loader',
@@ -48,6 +50,7 @@ const common = {
             query: {
               mozjpeg: {
                 progressive: true,
+                quality: 90
               },
               gifsicle: {
                 interlaced: true,
