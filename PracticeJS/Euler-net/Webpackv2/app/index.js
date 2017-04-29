@@ -1,3 +1,6 @@
+// Load lodash templates.
+import template from 'lodash/template';
+
 // Get the functions
 import ex1 from './exercises/Ex1';
 import ex2 from './exercises/Ex2';
@@ -11,8 +14,6 @@ import prettify from './prettify';
 import questionTemplate from './template';
 import questions from './data';
 
-// Load lodash.  Not necessary because of webpack plugin settings.
-const _ = require('lodash');
 // Load jquery.  Not necessary because of webpack plugin settings.
 const $ = require('jquery');
 // Global variable used to hold the exercises
@@ -27,10 +28,10 @@ ex.ex5 = ex5;
 ex.ex6 = ex6;
 
 // Render the questions
-const template = _.template(questionTemplate);
+const templ = template(questionTemplate);
 
 [...questions].forEach((el, i) => {
-  $('#main').append(template({ num: i + 1, title: el }));
+  $('#main').append(templ({ num: i + 1, title: el }));
 });
 
 // Attach the function to the button
