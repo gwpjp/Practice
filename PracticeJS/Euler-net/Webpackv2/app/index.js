@@ -29,14 +29,12 @@ ex.ex6 = ex6;
 // Render the questions
 const template = _.template(questionTemplate);
 
-_.forEach(questions, (el, i) => {
+[...questions].forEach((el, i) => {
   $('#main').append(template({ num: i + 1, title: el }));
 });
 
 // Attach the function to the button
-const inputs = $('input');
-
-_.forEach(inputs, (el) => {
+[...$('input')].forEach((el) => {
   const num = parseInt(/[0-9]+/.exec(el.id), 10);
 
   $(el).click(() => {
