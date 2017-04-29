@@ -24,7 +24,10 @@ const common = {
         test: /\.js?$/,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              presets: [["env",{"modules":false}]]
+            }
           },
           {
             loader: 'eslint-loader'
