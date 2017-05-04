@@ -42,4 +42,3 @@ const template = _.template(questionTemplate);
     $(`#answer_${num}`).html(prettify(ans));
   });
 });
-

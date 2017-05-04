@@ -6,4 +6,3 @@ export default function prettify(yourNumber) {
   // Combines the two sections
   return n.join('.');
 }
-

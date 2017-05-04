@@ -1,4 +1,5 @@
-const questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.',
+const questions = [
+  'Find the sum of all the multiples of 3 or 5 below 1,000.',
   'Find the sum of the even Fibonacci numbers less than 4,000,000.',
   'Find the largest prime factor of 600,851,475,143.',
   'Find the largest palindrome that is the multiple of two 3-digit numbers.',
@@ -7,4 +8,3 @@ const questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.',
 ];
 
 export default questions;
-

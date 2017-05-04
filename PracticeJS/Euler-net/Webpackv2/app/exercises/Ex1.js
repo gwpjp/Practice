@@ -10,4 +10,3 @@ export default function ex1() {
 
   return sum;
 }
-

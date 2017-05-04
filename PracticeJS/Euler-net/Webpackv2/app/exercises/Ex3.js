@@ -9,7 +9,8 @@ export default function ex3() {
     primeCheck = 1;
     // First, check to see if 'i' is prime.
     m = Math.sqrt(i);
-    if (i % 3 === 0) { // i is definitely not even
+    if (i % 3 === 0) {
+      // i is definitely not even
       primeCheck = 3;
     } else {
       // i is prime iff it is divisible by 6k-1 or 6k+1
@@ -31,4 +32,3 @@ export default function ex3() {
 
   return prime;
 }
-
