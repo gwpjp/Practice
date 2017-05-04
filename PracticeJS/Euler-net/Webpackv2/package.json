@@ -23,7 +23,7 @@
     "babili-webpack-plugin": "^0.0.11",
     "beta": "0.0.1",
     "clean-webpack-plugin": "^0.1.16",
-    "css-loader": "^0.28.0",
+    "css-loader": "^0.28.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-loader": "^1.7.1",
@@ -45,7 +45,7 @@
     "uglify-js": "^2.8.22",
     "uglify-js-harmony": "^2.7.5",
     "url-loader": "^0.5.8",
-    "webpack": "^2.4.1",
+    "webpack": "^2.5.0",
     "webpack-dev-server": "^2.4.5",
     "webpack-merge": "^4.1.0"
   },
