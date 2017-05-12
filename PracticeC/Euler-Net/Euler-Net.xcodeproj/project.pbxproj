@@ -27,6 +27,7 @@
 		2604A5121EC398FA00BFCA16 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		26C9684D1EC5E9FA00C07D16 /* Prob1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prob1.h; sourceTree = "<group>"; };
 		26C9684E1EC5EA9700C07D16 /* Prettify.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prettify.h; sourceTree = "<group>"; };
+		26C9684F1EC5F91C00C07D16 /* Prob2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Prob2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				2604A5121EC398FA00BFCA16 /* main.cpp */,
+				26C9684F1EC5F91C00C07D16 /* Prob2.h */,
 				26C9684D1EC5E9FA00C07D16 /* Prob1.h */,
 				26C9684E1EC5EA9700C07D16 /* Prettify.h */,
 			);

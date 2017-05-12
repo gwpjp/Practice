@@ -11,9 +11,14 @@
 
 #include<string>
 
+
 std::string prettify(int num){
-    
-    return std::to_string(num);
+    std::string snum = std::to_string(num);
+    long i = snum.length();
+    for (int j = 1; j < (double)i/3; j++){
+        snum = snum.insert(snum.length()-3 * j - j + 1,",");
+    }
+    return snum;
 }
 
 #endif /* Prettify_h */
