@@ -32,6 +32,9 @@ int main()
             cout << prettify(prob2()) << " is the sum of all the even Fibonacci terms less than 4,000,000.";
             break;
         }
+        case 3: {
+
+        }
         default: {
             cout << "Not a valid problem.";
             break;
