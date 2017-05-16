@@ -19,16 +19,16 @@ int main()
     string prob;
     cin >> prob;
     cout << "\n";
-    switch (std::stoi( prob )) {
+    switch (stoi( prob )) {
         case 1: {
             cout << "Multiples of 3 and 5:\n";
-            
+
             cout << prettify(prob1()) << " is the sum of all the multiples of 3 and 5 below 1000.";
             break;
         }
         case 2: {
             cout << "Even Fibonacci Numbers:\n";
-            
+
             cout << prettify(prob2()) << " is the sum of all the even Fibonacci terms less than 4,000,000.";
             break;
         }
