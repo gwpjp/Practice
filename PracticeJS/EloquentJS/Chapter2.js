@@ -12,7 +12,9 @@
     text = text + "#";
     console.log(text);
              }
-};  
+};
+
+triangleLoop();
 
 //FizzBuzz
 var FizzBuzz = function () {
@@ -57,3 +59,5 @@ var chessBoard = function () {
   }
   console.log(text);
 };
+
+chessBoard();
