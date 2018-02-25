@@ -1,0 +1,13 @@
+tell application "System Preferences" to activate
+delay 1
+
+tell application "System Events"
+	tell process "System Preferences"
+		click the menu item "Accessibility" of the menu "View" of menu bar 1
+		delay 1
+		select row 6 of table 1 of scroll area 2 of window "Accessibility"
+		delay 1
+		click the checkbox "Use grayscale" of window "Accessibility"
+	end tell
+end tell
+tell application "System Preferences" to quit
