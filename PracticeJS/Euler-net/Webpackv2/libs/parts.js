@@ -21,6 +21,21 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
   },
 });
 
+// For inlining Sass
+exports.loadSass = ({ include, exclude } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        include,
+        exclude,
+
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
+  },
+});
+
 // For importing images
 exports.loadImages = ({ include, exclude } = {}) => ({
   module: {

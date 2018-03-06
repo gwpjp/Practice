@@ -5,7 +5,7 @@ const externals = require('./libs/externals');
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
-  style: path.join(__dirname, 'app', 'main.css'),
+  style: path.join(__dirname, 'app', 'main.scss'),
   build: path.join(__dirname, 'build'),
 };
 
@@ -40,6 +40,7 @@ const commonConfig = merge([{
 },
 parts.setupHTML(),
 parts.loadCSS(),
+parts.loadSass(),
 parts.loadImages(),
 ]);
 

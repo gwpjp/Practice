@@ -66,30 +66,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./app/main.css");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./app/main.scss");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./app/main.css":
-/*!**********************!*\
-  !*** ./app/main.css ***!
-  \**********************/
+/***/ "./app/main.scss":
+/*!***********************!*\
+  !*** ./app/main.scss ***!
+  \***********************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\nvar content = __webpack_require__(/*! !../node_modules/css-loader!./main.css */ \"./node_modules/css-loader/index.js!./app/main.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./app/main.css?");
+eval("\nvar content = __webpack_require__(/*! !../node_modules/css-loader!../node_modules/sass-loader/lib/loader.js!./main.scss */ \"./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./app/main.scss\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./app/main.scss?");
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/index.js!./app/main.css":
-/*!************************************************!*\
-  !*** ./node_modules/css-loader!./app/main.css ***!
-  \************************************************/
+/***/ "./node_modules/css-loader/index.js!./node_modules/sass-loader/lib/loader.js!./app/main.scss":
+/*!******************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js!./app/main.scss ***!
+  \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"html {\\n\\tfont-family: 'Helvetica Neue';\\n\\tfont-size: 14px;\\n}\\n\\nh2 {\\n\\tcolor: magenta;\\n}\\n\\n#asdfasdadfa {\\n\\tcolor: green;\\n\\tfont-weight: bold;\\n}\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./app/main.css?./node_modules/css-loader");
+eval("exports = module.exports = __webpack_require__(/*! ../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"html {\\n  font-family: 'Helvetica Neue';\\n  font-size: 14px; }\\n\\nh2 {\\n  color: magenta; }\\n\\n#asdfasdadfa {\\n  color: green;\\n  font-weight: bold; }\\n\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./app/main.scss?./node_modules/css-loader!./node_modules/sass-loader/lib/loader.js");
 
 /***/ }),
 
