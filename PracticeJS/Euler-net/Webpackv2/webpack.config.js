@@ -15,6 +15,10 @@ const commonConfig = {
     style: PATHS.style,
     app: path.join(PATHS.app, 'index.js'), // Not necessary to append index.js because Node defaults to it
   },
+  output: {
+    path: PATHS.build,
+    filename: '[name].js',
+  },
   module: {
     rules: [
       {
@@ -96,17 +100,17 @@ const developmentConfig = merge(
       filename: '[name].js',
     },
   },
-  externals.loadExternals(),
-  {
-    devtool: 'eval-source-map',
-  },
+  // externals.loadExternals(),
+  // {
+  //   devtool: 'eval-source-map',
+  // },
   //parts.setFreeVariable('process.env.NODE_ENV', 'development'),
   //parts.setupHTML(),
-  parts.devServer({
-    // Customize host/port here if needed
-    host: process.env.HOST,
-    port: process.env.PORT,
-  }),
+  // parts.devServer({
+  //   // Customize host/port here if needed
+  //   host: process.env.HOST,
+  //   port: process.env.PORT,
+  // }),
 );
 
 module.exports = (mode) => {
