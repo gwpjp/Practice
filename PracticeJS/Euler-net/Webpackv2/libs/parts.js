@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 const BabiliPlugin = require("babili-webpack-plugin");
+const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
 
 //For inlining CSS
 exports.setupCSS = function(paths) {
@@ -35,9 +36,9 @@ exports.extractCSS = function(paths) {
         // Extract CSS during build
         {
           test: /\.css$/,
-          use: ExtractTextPlugin.extract({ 
+          use: ExtractTextPlugin.extract({
             fallback: 'style-loader',
-            use: 'css-loader' 
+            use: 'css-loader'
           }),
           include: paths
         }
@@ -115,14 +116,10 @@ exports.minify = function() {
   // }
 
   // This can be used if Babel is used to transform the original code to ES5.
-  return { 
-    plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      })
-    ]
+  return {
+    optimization: {
+      minimizer: [new UglifyWebpackPlugin()],
+    }
   };
 }
 
