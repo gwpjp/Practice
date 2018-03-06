@@ -24,7 +24,7 @@ export default function ex3() {
       }
     }
     /* If it is prime, then its largest divisor is 1,
-    so use this to check if it divides our number.*/
+    so use this to check if it divides our number. */
     if (primeCheck === 1 && 600851475143 % i === 0) {
       prime = i;
     }
