@@ -35,43 +35,12 @@ const commonConfig = merge([{
         exclude: /node_modules/, // define an exclude to ignore node modules
         include: PATHS.app, // define an include so we check just the files we need
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-        exclude: /node_modules/, // define an exclude to ignore node modules
-        include: PATHS.app, // define an include so we check just the files we need
-      },
-      {
-        test: /\.(jpg|png|gif)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 25000,
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            query: {
-              mozjpeg: {
-                progressive: true,
-                quality: 90,
-              },
-              gifsicle: {
-                interlaced: true,
-              },
-              optipng: {
-                optimizationLevel: 7,
-              },
-            },
-          },
-        ],
-        include: PATHS.app,
-      },
     ],
   },
 },
 parts.setupHTML(),
+parts.loadCSS(),
+parts.loadImages(),
 ]);
 
 const productionConfig = merge(

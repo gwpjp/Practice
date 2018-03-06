@@ -21,6 +21,43 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
   },
 });
 
+// For importing images
+exports.loadImages = ({ include, exclude } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.(jpg|png|gif)$/,
+        include,
+        exclude,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 25000,
+            },
+          },
+          {
+            loader: 'image-webpack-loader',
+            query: {
+              mozjpeg: {
+                progressive: true,
+                quality: 90,
+              },
+              gifsicle: {
+                interlaced: true,
+              },
+              optipng: {
+                optimizationLevel: 7,
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+});
+
+
 //For extracting CSS into a separate file
 exports.extractCSS = function(paths) {
   return {
