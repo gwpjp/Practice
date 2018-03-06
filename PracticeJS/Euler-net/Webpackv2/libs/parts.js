@@ -6,6 +6,26 @@ const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 const BabiliPlugin = require("babili-webpack-plugin");
 const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
 
+// Cleans out the build directory
+exports.clean = path => ({
+  plugins: [
+    new CleanWebpackPlugin([path], {
+      root: process.cwd(), // Without `root`, CleanWebpackPlugin won't point to our project
+    }),
+  ],
+});
+
+
+// For initializing the HTML
+exports.setupHTML = () => ({
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Euler-net Webpack pt2',
+      template: 'template.html',
+    }),
+  ],
+});
+
 // For inlining CSS
 exports.loadCSS = ({ include, exclude } = {}) => ({
   module: {
@@ -14,7 +34,6 @@ exports.loadCSS = ({ include, exclude } = {}) => ({
         test: /\.css$/,
         include,
         exclude,
-
         use: ['style-loader', 'css-loader'],
       },
     ],
@@ -29,7 +48,6 @@ exports.loadSass = ({ include, exclude } = {}) => ({
         test: /\.scss$/,
         include,
         exclude,
-
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
@@ -73,59 +91,41 @@ exports.loadImages = ({ include, exclude } = {}) => ({
 });
 
 
-//For extracting CSS into a separate file
-exports.extractCSS = function(paths) {
-  return {
-    module: {
-      rules: [
-        // Extract CSS during build
-        {
-          test: /\.css$/,
-          use: ExtractTextPlugin.extract({
-            fallback: 'style-loader',
-            use: 'css-loader'
-          }),
-          include: paths
-        }
-      ]
-    },
-    plugins: [
-      // Output extracted CSS to a file
-      new ExtractTextPlugin({
-        filename: '[name].[chunkhash].css',
-        disable: false,
-        allChunks: true
-      })
-    ]
-  };
-}
-
-exports.purifyCSS = function(paths) {
-  return {
-    plugins: [
-      new PurifyCSSPlugin({
-        basePath: process.cwd(),
-        // `paths` is used to point PurifyCSS to files not
-        // visible to Webpack. You can pass glob patterns
-        // to it.
-        paths: paths
-      }),
-    ]
-  }
-}
-
-exports.setupHTML = function() {
-  return {
-    plugins: [
-      new HtmlWebpackPlugin({
-        title: 'Euler-net Webpack pt2',
-        template: 'template.html',
-      })
-    ]
-  };
-}
 
 
+
+// For extracting Sass into a separate file
+exports.extractSass = paths => ({
+  module: {
+    rules: [
+      // Extract Sass during build
+      {
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
+        include: paths,
+      },
+    ],
+  },
+  plugins: [
+    // Output extracted CSS to a file
+    new ExtractTextPlugin({
+      filename: '[name].[chunkhash].css',
+      disable: false,
+      allChunks: true,
+    }),
+  ],
+});
+
+
+// Remove unused CSS
+exports.purifyCSS = ({ paths }) => ({
+  plugins: [
+    new PurifyCSSPlugin({ paths }),
+  ],
+});
 
 
 exports.setFreeVariable = function(key, value) {
@@ -139,18 +139,7 @@ exports.setFreeVariable = function(key, value) {
   };
 }
 
-exports.clean = function(path) {
-  return {
-    plugins: [
-      new CleanWebpackPlugin([path], {
-        // Without `root` CleanWebpackPlugin won't point to our
-        // project and will fail to work.
-        root: process.cwd(),
-        exclude: ['index.html']
-      })
-    ]
-  };
-}
+
 
 exports.minify = function() {
   //This can be used if Babel is not used to transform the original code.

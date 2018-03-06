@@ -38,10 +38,12 @@ const commonConfig = merge([{
     ],
   },
 },
+parts.clean(PATHS.build),
 parts.setupHTML(),
 parts.loadCSS(),
 parts.loadSass(),
 parts.loadImages(),
+//parts.purifyCSS(PATHS.app),
 ]);
 
 const productionConfig = merge(
@@ -58,10 +60,8 @@ const productionConfig = merge(
   },
   //parts.setFreeVariable('process.env.NODE_ENV', 'production'),
   //parts.minify(),
-  //parts.setupHTML(),
   //parts.extractCSS(PATHS.style),
   //parts.purifyCSS([PATHS.app]),
-  parts.clean(PATHS.build),
 );
 
 const developmentConfig = merge(
@@ -77,7 +77,6 @@ const developmentConfig = merge(
   //   devtool: 'eval-source-map',
   // },
   //parts.setFreeVariable('process.env.NODE_ENV', 'development'),
-  //parts.setupHTML(),
   // parts.devServer({
   //   // Customize host/port here if needed
   //   host: process.env.HOST,
