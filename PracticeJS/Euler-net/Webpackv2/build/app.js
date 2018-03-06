@@ -1,1 +1,909 @@
-!function(e){var n=window.webpackHotUpdate;window.webpackHotUpdate=function(e,i){!function(e,n){if(!b[e]||!x[e])return;for(var i in x[e]=!1,n)Object.prototype.hasOwnProperty.call(n,i)&&(o[i]=n[i]);0==--u&&0===p&&E()}(e,i),n&&n(e,i)};var i,Q=!0,t="7e04ff80015c71b90875",c=1e4,s={},B=[],r=[];function U(e){var n=G[e];if(!n)return N;var Q=function(Q){return n.hot.active?(G[Q]?G[Q].parents.includes(e)||G[Q].parents.push(e):(B=[e],i=Q),n.children.includes(Q)||n.children.push(Q)):(console.warn("[HMR] unexpected require("+Q+") from disposed module "+e),B=[]),N(Q)},t=function(e){return{configurable:!0,enumerable:!0,get:function(){return N[e]},set:function(n){N[e]=n}}};for(var c in N)Object.prototype.hasOwnProperty.call(N,c)&&"e"!==c&&Object.defineProperty(Q,c,t(c));return Q.e=function(e){return"ready"===l&&a("prepare"),p++,N.e(e).then(n,function(e){throw n(),e});function n(){p--,"prepare"===l&&(g[e]||V(e),0===p&&0===u&&E())}},Q}var F=[],l="idle";function a(e){l=e;for(var n=0;n<F.length;n++)F[n].call(null,e)}var I,o,d,u=0,p=0,g={},x={},b={};function C(e){return+e+""===e?+e:e}function m(e){if("idle"!==l)throw new Error("check() is only allowed in idle status");return Q=e,a("check"),(n=c,n=n||1e4,new Promise(function(e,i){if("undefined"==typeof XMLHttpRequest)return i(new Error("No browser support"));try{var Q=new XMLHttpRequest,c=N.p+""+t+".hot-update.json";Q.open("GET",c,!0),Q.timeout=n,Q.send(null)}catch(e){return i(e)}Q.onreadystatechange=function(){if(4===Q.readyState)if(0===Q.status)i(new Error("Manifest request to "+c+" timed out."));else if(404===Q.status)e();else if(200!==Q.status&&304!==Q.status)i(new Error("Manifest request to "+c+" failed."));else{try{var n=JSON.parse(Q.responseText)}catch(e){return void i(e)}e(n)}}})).then(function(e){if(!e)return a("idle"),null;x={},g={},b=e.c,d=e.h,a("prepare");var n=new Promise(function(e,n){I={resolve:e,reject:n}});o={};return V(0),"prepare"===l&&0===p&&0===u&&E(),n});var n}function V(e){b[e]?(x[e]=!0,u++,function(e){var n=document.getElementsByTagName("head")[0],i=document.createElement("script");i.charset="utf-8",i.src=N.p+""+e+"."+t+".hot-update.js",n.appendChild(i)}(e)):g[e]=!0}function E(){a("ready");var e=I;if(I=null,e)if(Q)Promise.resolve().then(function(){return L(Q)}).then(function(n){e.resolve(n)},function(n){e.reject(n)});else{var n=[];for(var i in o)Object.prototype.hasOwnProperty.call(o,i)&&n.push(C(i));e.resolve(n)}}function L(n){if("ready"!==l)throw new Error("apply() is only allowed in ready status");var i,Q,c,r,U;function F(e){for(var n=[e],i={},Q=n.slice().map(function(e){return{chain:[e],id:e}});Q.length>0;){var t=Q.pop(),c=t.id,s=t.chain;if((r=G[c])&&!r.hot._selfAccepted){if(r.hot._selfDeclined)return{type:"self-declined",chain:s,moduleId:c};if(r.hot._main)return{type:"unaccepted",chain:s,moduleId:c};for(var B=0;B<r.parents.length;B++){var U=r.parents[B],F=G[U];if(F){if(F.hot._declinedDependencies[c])return{type:"declined",chain:s.concat([U]),moduleId:c,parentId:U};n.includes(U)||(F.hot._acceptedDependencies[c]?(i[U]||(i[U]=[]),I(i[U],[c])):(delete i[U],n.push(U),Q.push({chain:s.concat([U]),id:U})))}}}}return{type:"accepted",moduleId:e,outdatedModules:n,outdatedDependencies:i}}function I(e,n){for(var i=0;i<n.length;i++){var Q=n[i];e.includes(Q)||e.push(Q)}}n=n||{};var u={},p=[],g={},x=function(){console.warn("[HMR] unexpected require("+V.moduleId+") to disposed module")};for(var m in o)if(Object.prototype.hasOwnProperty.call(o,m)){var V;U=C(m);var E=!1,L=!1,y=!1,h="";switch((V=o[m]?F(U):{type:"disposed",moduleId:m}).chain&&(h="\nUpdate propagation: "+V.chain.join(" -> ")),V.type){case"self-declined":n.onDeclined&&n.onDeclined(V),n.ignoreDeclined||(E=new Error("Aborted because of self decline: "+V.moduleId+h));break;case"declined":n.onDeclined&&n.onDeclined(V),n.ignoreDeclined||(E=new Error("Aborted because of declined dependency: "+V.moduleId+" in "+V.parentId+h));break;case"unaccepted":n.onUnaccepted&&n.onUnaccepted(V),n.ignoreUnaccepted||(E=new Error("Aborted because "+U+" is not accepted"+h));break;case"accepted":n.onAccepted&&n.onAccepted(V),L=!0;break;case"disposed":n.onDisposed&&n.onDisposed(V),y=!0;break;default:throw new Error("Unexception type "+V.type)}if(E)return a("abort"),Promise.reject(E);if(L)for(U in g[U]=o[U],I(p,V.outdatedModules),V.outdatedDependencies)Object.prototype.hasOwnProperty.call(V.outdatedDependencies,U)&&(u[U]||(u[U]=[]),I(u[U],V.outdatedDependencies[U]));y&&(I(p,[V.moduleId]),g[U]=x)}var D,S=[];for(Q=0;Q<p.length;Q++)U=p[Q],G[U]&&G[U].hot._selfAccepted&&S.push({module:U,errorHandler:G[U].hot._selfAccepted});a("dispose"),Object.keys(b).forEach(function(e){!1===b[e]&&function(e){delete installedChunks[e]}(e)});for(var A,Z,X=p.slice();X.length>0;)if(U=X.pop(),r=G[U]){var f={},J=r.hot._disposeHandlers;for(c=0;c<J.length;c++)(i=J[c])(f);for(s[U]=f,r.hot.active=!1,delete G[U],delete u[U],c=0;c<r.children.length;c++){var v=G[r.children[c]];v&&((D=v.parents.indexOf(U))>=0&&v.parents.splice(D,1))}}for(U in u)if(Object.prototype.hasOwnProperty.call(u,U)&&(r=G[U]))for(Z=u[U],c=0;c<Z.length;c++)A=Z[c],(D=r.children.indexOf(A))>=0&&r.children.splice(D,1);for(U in a("apply"),t=d,g)Object.prototype.hasOwnProperty.call(g,U)&&(e[U]=g[U]);var W=null;for(U in u)if(Object.prototype.hasOwnProperty.call(u,U)&&(r=G[U])){Z=u[U];var w=[];for(Q=0;Q<Z.length;Q++)if(A=Z[Q],i=r.hot._acceptedDependencies[A]){if(w.includes(i))continue;w.push(i)}for(Q=0;Q<w.length;Q++){i=w[Q];try{i(Z)}catch(e){n.onErrored&&n.onErrored({type:"accept-errored",moduleId:U,dependencyId:Z[Q],error:e}),n.ignoreErrored||W||(W=e)}}}for(Q=0;Q<S.length;Q++){var R=S[Q];U=R.module,B=[U];try{N(U)}catch(e){if("function"==typeof R.errorHandler)try{R.errorHandler(e)}catch(i){n.onErrored&&n.onErrored({type:"self-accept-error-handler-errored",moduleId:U,error:i,originalError:e}),n.ignoreErrored||W||(W=i),W||(W=e)}else n.onErrored&&n.onErrored({type:"self-accept-errored",moduleId:U,error:e}),n.ignoreErrored||W||(W=e)}}return W?(a("fail"),Promise.reject(W)):(a("idle"),new Promise(function(e){e(p)}))}var G={};function N(n){if(G[n])return G[n].exports;var Q=G[n]={i:n,l:!1,exports:{},hot:function(e){var n={_acceptedDependencies:{},_declinedDependencies:{},_selfAccepted:!1,_selfDeclined:!1,_disposeHandlers:[],_main:i!==e,active:!0,accept:function(e,i){if(void 0===e)n._selfAccepted=!0;else if("function"==typeof e)n._selfAccepted=e;else if("object"==typeof e)for(var Q=0;Q<e.length;Q++)n._acceptedDependencies[e[Q]]=i||function(){};else n._acceptedDependencies[e]=i||function(){}},decline:function(e){if(void 0===e)n._selfDeclined=!0;else if("object"==typeof e)for(var i=0;i<e.length;i++)n._declinedDependencies[e[i]]=!0;else n._declinedDependencies[e]=!0},dispose:function(e){n._disposeHandlers.push(e)},addDisposeHandler:function(e){n._disposeHandlers.push(e)},removeDisposeHandler:function(e){var i=n._disposeHandlers.indexOf(e);i>=0&&n._disposeHandlers.splice(i,1)},check:m,apply:L,status:function(e){if(!e)return l;F.push(e)},addStatusHandler:function(e){F.push(e)},removeStatusHandler:function(e){var n=F.indexOf(e);n>=0&&F.splice(n,1)},data:s[e]};return i=void 0,n}(n),parents:(r=B,B=[],r),children:[]};return e[n].call(Q.exports,Q,Q.exports,U(n)),Q.l=!0,Q.exports}N.m=e,N.c=G,N.d=function(e,n,i){N.o(e,n)||Object.defineProperty(e,n,{configurable:!1,enumerable:!0,get:i})},N.r=function(e){Object.defineProperty(e,"__esModule",{value:!0})},N.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return N.d(n,"a",n),n},N.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},N.p="",N.h=function(){return t},U(1)(N.s=1)}([,function(module,__webpack_exports__,__webpack_require__){"use strict";eval("__webpack_require__.r(__webpack_exports__);\n\n// CONCATENATED MODULE: ./app/exercises/Ex1.js\n// Example 1: Multiples of 3 and 5\nfunction ex1() {\n  var sum = 0;\n\n  for (var i = 0; i < 1000; i += 1) {\n    if (i % 3 === 0 || i % 5 === 0) {\n      sum += i;\n    }\n  }\n\n  return sum;\n}\n// CONCATENATED MODULE: ./app/exercises/Ex2.js\n// Example 2: Sums of Fibonacci\nfunction ex2() {\n  var pre = 1;\n  var prepre = 1;\n  var total = 0;\n\n  for (var cur = 2; cur < 4000000; cur += prepre) {\n    if (cur % 2 === 0) {\n      total += cur;\n    }\n    prepre = pre;\n    pre = cur;\n  }\n\n  return total;\n}\n// CONCATENATED MODULE: ./app/exercises/Ex3.js\n// Example 3: Largest prime\nfunction ex3() {\n  var n = Math.sqrt(600851475143); // This is the highest you have to check.\n  var primeCheck = 0;\n  var prime = 0;\n  var m = 0;\n\n  for (var i = 1; i < n; i += 2) {\n    primeCheck = 1;\n    // First, check to see if 'i' is prime.\n    m = Math.sqrt(i);\n    if (i % 3 === 0) {\n      // i is definitely not even\n      primeCheck = 3;\n    } else {\n      // i is prime iff it is divisible by 6k-1 or 6k+1\n      for (var j = 5; j < m; j += 6) {\n        if (i % j === 0 || i % (j + 2) === 0) {\n          primeCheck = j;\n          if (primeCheck > 1) {\n            break;\n          }\n        }\n      }\n    }\n    /* If it is prime, then its largest divisor is 1,\n    so use this to check if it divides our number. */\n    if (primeCheck === 1 && 600851475143 % i === 0) {\n      prime = i;\n    }\n  }\n\n  return prime;\n}\n// CONCATENATED MODULE: ./app/exercises/Ex4.js\n// Example 4: Largest Palindrome Project\nfunction ex4() {\n  var pal = 0;\n  var temp = 0;\n  var temp2 = 0;\n\n  for (var i = 1; i < 1000; i += 1) {\n    for (var j = 1; j < 1000; j += 1) {\n      temp = i * j;\n      temp2 = temp.toString().split('').reverse().join('');\n      if (temp.toString() === temp2 && temp > pal) {\n        pal = temp;\n      }\n    }\n  }\n\n  return pal;\n}\n// CONCATENATED MODULE: ./app/exercises/Ex5.js\n// Example 5: Smallest number divisible by 1,...,20.\nfunction ex5() {\n  var N = 20;\n  var cur = 2;\n\n  for (var temp = 2; temp < N;) {\n    if (cur % temp === 0) {\n      temp += 1;\n    } else {\n      temp = 2;\n      cur += 1;\n    }\n  }\n  return cur;\n}\n// CONCATENATED MODULE: ./app/exercises/Ex6.js\n// Example 6: Sum and squares\nfunction ex6() {\n  var N = 100;\n  var sumsq = Math.pow(0.5 * N * (N + 1), 2);\n  var sqsum = 0;\n  for (var i = 1; i <= 100; i += 1) {\n    sqsum += Math.pow(i, 2);\n  }\n\n  return sumsq - sqsum;\n}\n// CONCATENATED MODULE: ./app/prettify.js\nfunction prettify(yourNumber) {\n  // Seperates the components of the number\n  var n = yourNumber.toString().split('.');\n  // Comma-fies the first part\n  n[0] = n[0].replace(/\\B(?=(\\d{3})+(?!\\d))/g, ',');\n  // Combines the two sections\n  return n.join('.');\n}\n// CONCATENATED MODULE: ./app/template.js\nvar questionTemplate = '<div id = \"ex_<%= num %>\"<p class = \"example\"><strong>Example #<%= num %></strong>: <%= title %> </p>' + '<p>Answer: <span id=\"answer_<%= num %>\"></span></p>' + '<input id=\"b-<%= num %>\" type=\"button\" value=\"Answer the question.\" /></div><br>';\n\n/* harmony default export */ var template = (questionTemplate);\n// CONCATENATED MODULE: ./app/data.js\nvar questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.', 'Find the sum of the even Fibonacci numbers less than 4,000,000.', 'Find the largest prime factor of 600,851,475,143.', 'Find the largest palindrome that is the multiple of two 3-digit numbers.', 'Smallest number divisible by 1,...,20.', 'Difference between the sum of squares and the square of the sum of the numbers 1,...,100'];\n\n/* harmony default export */ var data = (questions);\n// CONCATENATED MODULE: ./app/index.js\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }\n\n// Get the functions\n\n\n\n\n\n\n\n\n// Get the data for the questions\n\n\n\n// Load lodash.  Not necessary because of webpack plugin settings.\nvar _ = __webpack_require__(3);\n// Load jquery.  Not necessary because of webpack plugin settings.\nvar $ = __webpack_require__(2);\n// Global variable used to hold the exercises\nvar ex = {};\n\n// Place functions in global variable\nex.ex1 = ex1;\nex.ex2 = ex2;\nex.ex3 = ex3;\nex.ex4 = ex4;\nex.ex5 = ex5;\nex.ex6 = ex6;\n\n// Render the questions\nvar app_template = _.template(template);\n\n[].concat(_toConsumableArray(data)).forEach(function (el, i) {\n  $('#main').append(app_template({ num: i + 1, title: el }));\n});\n\n// Attach the function to the button\n[].concat(_toConsumableArray($('input'))).forEach(function (el) {\n  var num = parseInt(/[0-9]+/.exec(el.id), 10);\n\n  $(el).click(function () {\n    var ans = ex['ex' + num]($('#answer_' + num));\n    $('#answer_' + num).html(prettify(ans));\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4MS5qcz8zYzA1Iiwid2VicGFjazovLy8uL2FwcC9leGVyY2lzZXMvRXgyLmpzPzg2ZTIiLCJ3ZWJwYWNrOi8vLy4vYXBwL2V4ZXJjaXNlcy9FeDMuanM/MzIxYyIsIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4NC5qcz83ODVjIiwid2VicGFjazovLy8uL2FwcC9leGVyY2lzZXMvRXg1LmpzP2MwY2UiLCJ3ZWJwYWNrOi8vLy4vYXBwL2V4ZXJjaXNlcy9FeDYuanM/ZTg3MiIsIndlYnBhY2s6Ly8vLi9hcHAvcHJldHRpZnkuanM/YWQwNSIsIndlYnBhY2s6Ly8vLi9hcHAvdGVtcGxhdGUuanM/ZGE4MSIsIndlYnBhY2s6Ly8vLi9hcHAvZGF0YS5qcz82MWVlIiwid2VicGFjazovLy8uL2FwcC9pbmRleC5qcz9jNDA0Il0sIm5hbWVzIjpbImV4MSIsInN1bSIsImkiLCJleDIiLCJwcmUiLCJwcmVwcmUiLCJ0b3RhbCIsImN1ciIsImV4MyIsIm4iLCJNYXRoIiwic3FydCIsInByaW1lQ2hlY2siLCJwcmltZSIsIm0iLCJqIiwiZXg0IiwicGFsIiwidGVtcCIsInRlbXAyIiwidG9TdHJpbmciLCJzcGxpdCIsInJldmVyc2UiLCJqb2luIiwiZXg1IiwiTiIsImV4NiIsInN1bXNxIiwic3FzdW0iLCJwcmV0dGlmeSIsInlvdXJOdW1iZXIiLCJyZXBsYWNlIiwicXVlc3Rpb25UZW1wbGF0ZSIsInF1ZXN0aW9ucyIsIl8iLCJyZXF1aXJlIiwiJCIsImV4IiwidGVtcGxhdGUiLCJmb3JFYWNoIiwiZWwiLCJhcHBlbmQiLCJudW0iLCJ0aXRsZSIsInBhcnNlSW50IiwiZXhlYyIsImlkIiwiY2xpY2siLCJhbnMiLCJodG1sIl0sIm1hcHBpbmdzIjoiOzs7QUFBQTtBQUNlLFNBQVNBLEdBQVQsR0FBZTtBQUM1QixNQUFJQyxNQUFNLENBQVY7O0FBRUEsT0FBSyxJQUFJQyxJQUFJLENBQWIsRUFBZ0JBLElBQUks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QUFYOztBQUVBO0FBQ0FBLEdBQUdyQyxHQUFILEdBQVMsR0FBVDtBQUNBcUMsR0FBR2xDLEdBQUgsR0FBUyxHQUFUO0FBQ0FrQyxHQUFHN0IsR0FBSCxHQUFTLEdBQVQ7QUFDQTZCLEdBQUdyQixHQUFILEdBQVMsR0FBVDtBQUNBcUIsR0FBR2IsR0FBSCxHQUFTLEdBQVQ7QUFDQWEsR0FBR1gsR0FBSCxHQUFTLEdBQVQ7O0FBRUE7QUFDQSxJQUFNLFlBQUFZLEdBQVdKLEVBQUVJLFFBQUYsQ0FBVyxRQUFYLENBQWpCOztBQUVBLDZCQUFJLElBQUosR0FBZUMsT0FBZixDQUF1QixVQUFDQyxFQUFELEVBQUt0QyxDQUFMLEVBQVc7QUFDaENrQyxJQUFFLE9BQUYsRUFBV0ssTUFBWCxDQUFrQixZQUFBSCxDQUFTLEVBQUVJLEtBQUt4QyxJQUFJLENBQVgsRUFBY3lDLE9BQU9ILEVBQXJCLEVBQVQsQ0FBbEI7QUFDRCxDQUZEOztBQUlBO0FBQ0EsNkJBQUlKLEVBQUUsT0FBRixDQUFKLEdBQWdCRyxPQUFoQixDQUF3QixVQUFDQyxFQUFELEVBQVE7QUFDOUIsTUFBTUUsTUFBTUUsU0FBUyxTQUFTQyxJQUFULENBQWNMLEdBQUdNLEVBQWpCLENBQVQsRUFBK0IsRUFBL0IsQ0FBWjs7QUFFQVYsSUFBRUksRUFBRixFQUFNTyxLQUFOLENBQVksWUFBTTtBQUNoQixRQUFNQyxNQUFNWCxVQUFRSyxHQUFSLEVBQWVOLGVBQWFNLEdBQWIsQ0FBZixDQUFaO0FBQ0FOLG1CQUFhTSxHQUFiLEVBQW9CTyxJQUFwQixDQUF5QixRQUFBcEIsQ0FBU21CLEdBQVQsQ0FBekI7QUFDRCxHQUhEO0FBSUQsQ0FQRCIsImZpbGUiOiIxLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhhbXBsZSAxOiBNdWx0aXBsZXMgb2YgMyBhbmQgNVxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gZXgxKCkge1xuICBsZXQgc3VtID0gMDtcblxuICBmb3IgKGxldCBpID0gMDsgaSA8IDEwMDA7IGkgKz0gMSkge1xuICAgIGlmIChpICUgMyA9PT0gMCB8fCBpICUgNSA9PT0gMCkge1xuICAgICAgc3VtICs9IGk7XG4gICAgfVxuICB9XG5cbiAgcmV0dXJuIHN1bTtcbn1cbiIsIi8vIEV4YW1wbGUgMjogU3VtcyBvZiBGaWJvbmFjY2lcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGV4MigpIHtcbiAgbGV0IHByZSA9IDE7XG4gIGxldCBwcmVwcmUgPSAxO1xuICBsZXQgdG90YWwgPSAwO1xuXG4gIGZvciAobGV0IGN1ciA9IDI7IGN1ciA8IDQwMDAwMDA7IGN1ciArPSBwcmVwcmUpIHtcbiAgICBpZiAoY3VyICUgMiA9PT0gMCkge1xuICAgICAgdG90YWwgKz0gY3VyO1xuICAgIH1cbiAgICBwcmVwcmUgPSBwcmU7XG4gICAgcHJlID0gY3VyO1xuICB9XG5cbiAgcmV0dXJuIHRvdGFsO1xufVxuIiwiLy8gRXhhbXBsZSAzOiBMYXJnZXN0IHByaW1lXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBleDMoKSB7XG4gIGNvbnN0IG4gPSBNYXRoLnNxcnQoNjAwODUxNDc1MTQzKTsgLy8gVGhpcyBpcyB0aGUgaGlnaGVzdCB5b3UgaGF2ZSB0byBjaGVjay5cbiAgbGV0IHByaW1lQ2hlY2sgPSAwO1xuICBsZXQgcHJpbWUgPSAwO1xuICBsZXQgbSA9IDA7XG5cbiAgZm9yIChsZXQgaSA9IDE7IGkgPCBuOyBpICs9IDIpIHtcbiAgICBwcmltZUNoZWNrID0gMTtcbiAgICAvLyBGaXJzdCwgY2hlY2sgdG8gc2VlIGlmICdpJyBpcyBwcmltZS5cbiAgICBtID0gTWF0aC5zcXJ0KGkpO1xuICAgIGlmIChpICUgMyA9PT0gMCkge1xuICAgICAgLy8gaSBpcyBkZWZpbml0ZWx5IG5vdCBldmVuXG4gICAgICBwcmltZUNoZWNrID0gMztcbiAgICB9IGVsc2Uge1xuICAgICAgLy8gaSBpcyBwcmltZSBpZmYgaXQgaXMgZGl2aXNpYmxlIGJ5IDZrLTEgb3IgNmsrMVxuICAgICAgZm9yIChsZXQgaiA9IDU7IGogPCBtOyBqICs9IDYpIHtcbiAgICAgICAgaWYgKGkgJSBqID09PSAwIHx8IGkgJSAoaiArIDIpID09PSAwKSB7XG4gICAgICAgICAgcHJpbWVDaGVjayA9IGo7XG4gICAgICAgICAgaWYgKHByaW1lQ2hlY2sgPiAxKSB7XG4gICAgICAgICAgICBicmVhaztcbiAgICAgICAgICB9XG4gICAgICAgIH1cbiAgICAgIH1cbiAgICB9XG4gICAgLyogSWYgaXQgaXMgcHJpbWUsIHRoZW4gaXRzIGxhcmdlc3QgZGl2aXNvciBpcyAxLFxuICAgIHNvIHVzZSB0aGlzIHRvIGNoZWNrIGlmIGl0IGRpdmlkZXMgb3VyIG51bWJlci4gKi9cbiAgICBpZiAocHJpbWVDaGVjayA9PT0gMSAmJiA2MDA4NTE0NzUxNDMgJSBpID09PSAwKSB7XG4gICAgICBwcmltZSA9IGk7XG4gICAgfVxuICB9XG5cbiAgcmV0dXJuIHByaW1lO1xufVxuIiwiLy8gRXhhbXBsZSA0OiBMYXJnZXN0IFBhbGluZHJvbWUgUHJvamVjdFxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gZXg0KCkge1xuICBsZXQgcGFsID0gMDtcbiAgbGV0IHRlbXAgPSAwO1xuICBsZXQgdGVtcDIgPSAwO1xuXG4gIGZvciAobGV0IGkgPSAxOyBpIDwgMTAwMDsgaSArPSAxKSB7XG4gICAgZm9yIChsZXQgaiA9IDE7IGogPCAxMDAwOyBqICs9IDEpIHtcbiAgICAgIHRlbXAgPSBpICogajtcbiAgICAgIHRlbXAyID0gdGVtcC50b1N0cmluZygpLnNwbGl0KCcnKS5yZXZlcnNlKCkuam9pbignJyk7XG4gICAgICBpZiAodGVtcC50b1N0cmluZygpID09PSB0ZW1wMiAmJiB0ZW1wID4gcGFsKSB7XG4gICAgICAgIHBhbCA9IHRlbXA7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgcmV0dXJuIHBhbDtcbn1cbiIsIi8vIEV4YW1wbGUgNTogU21hbGxlc3QgbnVtYmVyIGRpdmlzaWJsZSBieSAxLC4uLiwyMC5cbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGV4NSgpIHtcbiAgY29uc3QgTiA9IDIwO1xuICBsZXQgY3VyID0gMjtcblxuICBmb3IgKGxldCB0ZW1wID0gMjsgdGVtcCA8IE47KSB7XG4gICAgaWYgKGN1ciAlIHRlbXAgPT09IDApIHtcbiAgICAgIHRlbXAgKz0gMTtcbiAgICB9IGVsc2Uge1xuICAgICAgdGVtcCA9IDI7XG4gICAgICBjdXIgKz0gMTtcbiAgICB9XG4gIH1cbiAgcmV0dXJuIGN1cjtcbn1cbiIsIi8vIEV4YW1wbGUgNjogU3VtIGFuZCBzcXVhcmVzXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBleDYoKSB7XG4gIGNvbnN0IE4gPSAxMDA7XG4gIGNvbnN0IHN1bXNxID0gKDAuNSAqIE4gKiAoTiArIDEpKSAqKiAyO1xuICBsZXQgc3FzdW0gPSAwO1xuICBmb3IgKGxldCBpID0gMTsgaSA8PSAxMDA7IGkgKz0gMSkge1xuICAgIHNxc3VtICs9IGkgKiogMjtcbiAgfVxuXG4gIHJldHVybiBzdW1zcSAtIHNxc3VtO1xufVxuIiwiZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gcHJldHRpZnkoeW91ck51bWJlcikge1xuICAvLyBTZXBlcmF0ZXMgdGhlIGNvbXBvbmVudHMgb2YgdGhlIG51bWJlclxuICBjb25zdCBuID0geW91ck51bWJlci50b1N0cmluZygpLnNwbGl0KCcuJyk7XG4gIC8vIENvbW1hLWZpZXMgdGhlIGZpcnN0IHBhcnRcbiAgblswXSA9IG5bMF0ucmVwbGFjZSgvXFxCKD89KFxcZHszfSkrKD8hXFxkKSkvZywgJywnKTtcbiAgLy8gQ29tYmluZXMgdGhlIHR3byBzZWN0aW9uc1xuICByZXR1cm4gbi5qb2luKCcuJyk7XG59XG4iLCJjb25zdCBxdWVzdGlvblRlbXBsYXRlID1cbiAgJzxkaXYgaWQgPSBcImV4XzwlPSBudW0gJT5cIjxwIGNsYXNzID0gXCJleGFtcGxlXCI+PHN0cm9uZz5FeGFtcGxlICM8JT0gbnVtICU+PC9zdHJvbmc+OiA8JT0gdGl0bGUgJT4gPC9wPicgK1xuICAnPHA+QW5zd2VyOiA8c3BhbiBpZD1cImFuc3dlcl88JT0gbnVtICU+XCI+PC9zcGFuPjwvcD4nICtcbiAgJzxpbnB1dCBpZD1cImItPCU9IG51bSAlPlwiIHR5cGU9XCJidXR0b25cIiB2YWx1ZT1cIkFuc3dlciB0aGUgcXVlc3Rpb24uXCIgLz48L2Rpdj48YnI+JztcblxuZXhwb3J0IGRlZmF1bHQgcXVlc3Rpb25UZW1wbGF0ZTtcbiIsImNvbnN0IHF1ZXN0aW9ucyA9IFtcbiAgJ0ZpbmQgdGhlIHN1bSBvZiBhbGwgdGhlIG11bHRpcGxlcyBvZiAzIG9yIDUgYmVsb3cgMSwwMDAuJyxcbiAgJ0ZpbmQgdGhlIHN1bSBvZiB0aGUgZXZlbiBGaWJvbmFjY2kgbnVtYmVycyBsZXNzIHRoYW4gNCwwMDAsMDAwLicsXG4gICdGaW5kIHRoZSBsYXJnZXN0IHByaW1lIGZhY3RvciBvZiA2MDAsODUxLDQ3NSwxNDMuJyxcbiAgJ0ZpbmQgdGhlIGxhcmdlc3QgcGFsaW5kcm9tZSB0aGF0IGlzIHRoZSBtdWx0aXBsZSBvZiB0d28gMy1kaWdpdCBudW1iZXJzLicsXG4gICdTbWFsbGVzdCBudW1iZXIgZGl2aXNpYmxlIGJ5IDEsLi4uLDIwLicsXG4gICdEaWZmZXJlbmNlIGJldHdlZW4gdGhlIHN1bSBvZiBzcXVhcmVzIGFuZCB0aGUgc3F1YXJlIG9mIHRoZSBzdW0gb2YgdGhlIG51bWJlcnMgMSwuLi4sMTAwJyxcbl07XG5cbmV4cG9ydCBkZWZhdWx0IHF1ZXN0aW9ucztcbiIsIi8vIEdldCB0aGUgZnVuY3Rpb25zXG5pbXBvcnQgZXgxIGZyb20gJy4vZXhlcmNpc2VzL0V4MSc7XG5pbXBvcnQgZXgyIGZyb20gJy4vZXhlcmNpc2VzL0V4Mic7XG5pbXBvcnQgZXgzIGZyb20gJy4vZXhlcmNpc2VzL0V4Myc7XG5pbXBvcnQgZXg0IGZyb20gJy4vZXhlcmNpc2VzL0V4NCc7XG5pbXBvcnQgZXg1IGZyb20gJy4vZXhlcmNpc2VzL0V4NSc7XG5pbXBvcnQgZXg2IGZyb20gJy4vZXhlcmNpc2VzL0V4Nic7XG5pbXBvcnQgcHJldHRpZnkgZnJvbSAnLi9wcmV0dGlmeSc7XG5cbi8vIEdldCB0aGUgZGF0YSBmb3IgdGhlIHF1ZXN0aW9uc1xuaW1wb3J0IHF1ZXN0aW9uVGVtcGxhdGUgZnJvbSAnLi90ZW1wbGF0ZSc7XG5pbXBvcnQgcXVlc3Rpb25zIGZyb20gJy4vZGF0YSc7XG5cbi8vIExvYWQgbG9kYXNoLiAgTm90IG5lY2Vzc2FyeSBiZWNhdXNlIG9mIHdlYnBhY2sgcGx1Z2luIHNldHRpbmdzLlxuY29uc3QgXyA9IHJlcXVpcmUoJ2xvZGFzaCcpO1xuLy8gTG9hZCBqcXVlcnkuICBOb3QgbmVjZXNzYXJ5IGJlY2F1c2Ugb2Ygd2VicGFjayBwbHVnaW4gc2V0dGluZ3MuXG5jb25zdCAkID0gcmVxdWlyZSgnanF1ZXJ5Jyk7XG4vLyBHbG9iYWwgdmFyaWFibGUgdXNlZCB0byBob2xkIHRoZSBleGVyY2lzZXNcbmNvbnN0IGV4ID0ge307XG5cbi8vIFBsYWNlIGZ1bmN0aW9ucyBpbiBnbG9iYWwgdmFyaWFibGVcbmV4LmV4MSA9IGV4MTtcbmV4LmV4MiA9IGV4MjtcbmV4LmV4MyA9IGV4MztcbmV4LmV4NCA9IGV4NDtcbmV4LmV4NSA9IGV4NTtcbmV4LmV4NiA9IGV4NjtcblxuLy8gUmVuZGVyIHRoZSBxdWVzdGlvbnNcbmNvbnN0IHRlbXBsYXRlID0gXy50ZW1wbGF0ZShxdWVzdGlvblRlbXBsYXRlKTtcblxuWy4uLnF1ZXN0aW9uc10uZm9yRWFjaCgoZWwsIGkpID0+IHtcbiAgJCgnI21haW4nKS5hcHBlbmQodGVtcGxhdGUoeyBudW06IGkgKyAxLCB0aXRsZTogZWwgfSkpO1xufSk7XG5cbi8vIEF0dGFjaCB0aGUgZnVuY3Rpb24gdG8gdGhlIGJ1dHRvblxuWy4uLiQoJ2lucHV0JyldLmZvckVhY2goKGVsKSA9PiB7XG4gIGNvbnN0IG51bSA9IHBhcnNlSW50KC9bMC05XSsvLmV4ZWMoZWwuaWQpLCAxMCk7XG5cbiAgJChlbCkuY2xpY2soKCkgPT4ge1xuICAgIGNvbnN0IGFucyA9IGV4W2BleCR7bnVtfWBdKCQoYCNhbnN3ZXJfJHtudW19YCkpO1xuICAgICQoYCNhbnN3ZXJfJHtudW19YCkuaHRtbChwcmV0dGlmeShhbnMpKTtcbiAgfSk7XG59KTtcbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///1\n")},function(module,exports){eval("module.exports = jQuery;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJqUXVlcnlcIj9jZDBjIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6IjIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IGpRdWVyeTsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///2\n")},function(module,exports){eval("module.exports = _;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJfXCI/Mjc2NSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiIzLmpzIiwic291cmNlc0NvbnRlbnQiOlsibW9kdWxlLmV4cG9ydHMgPSBfOyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///3\n")}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	function hotDisposeChunk(chunkId) {
+/******/ 		delete installedChunks[chunkId];
+/******/ 	}
+/******/ 	var parentHotUpdateCallback = window["webpackHotUpdate"];
+/******/ 	window["webpackHotUpdate"] = // eslint-disable-next-line no-unused-vars
+/******/ 	function webpackHotUpdateCallback(chunkId, moreModules) {
+/******/ 		hotAddUpdateChunk(chunkId, moreModules);
+/******/ 		if (parentHotUpdateCallback) parentHotUpdateCallback(chunkId, moreModules);
+/******/ 	} ;
+/******/
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	function hotDownloadUpdateChunk(chunkId) {
+/******/ 		var head = document.getElementsByTagName("head")[0];
+/******/ 		var script = document.createElement("script");
+/******/ 		script.charset = "utf-8";
+/******/ 		script.src = __webpack_require__.p + "" + chunkId + "." + hotCurrentHash + ".hot-update.js";
+/******/ 		;
+/******/ 		head.appendChild(script);
+/******/ 	}
+/******/
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	function hotDownloadManifest(requestTimeout) {
+/******/ 		requestTimeout = requestTimeout || 10000;
+/******/ 		return new Promise(function(resolve, reject) {
+/******/ 			if (typeof XMLHttpRequest === "undefined")
+/******/ 				return reject(new Error("No browser support"));
+/******/ 			try {
+/******/ 				var request = new XMLHttpRequest();
+/******/ 				var requestPath = __webpack_require__.p + "" + hotCurrentHash + ".hot-update.json";
+/******/ 				request.open("GET", requestPath, true);
+/******/ 				request.timeout = requestTimeout;
+/******/ 				request.send(null);
+/******/ 			} catch (err) {
+/******/ 				return reject(err);
+/******/ 			}
+/******/ 			request.onreadystatechange = function() {
+/******/ 				if (request.readyState !== 4) return;
+/******/ 				if (request.status === 0) {
+/******/ 					// timeout
+/******/ 					reject(
+/******/ 						new Error("Manifest request to " + requestPath + " timed out.")
+/******/ 					);
+/******/ 				} else if (request.status === 404) {
+/******/ 					// no update available
+/******/ 					resolve();
+/******/ 				} else if (request.status !== 200 && request.status !== 304) {
+/******/ 					// other failure
+/******/ 					reject(new Error("Manifest request to " + requestPath + " failed."));
+/******/ 				} else {
+/******/ 					// success
+/******/ 					try {
+/******/ 						var update = JSON.parse(request.responseText);
+/******/ 					} catch (e) {
+/******/ 						reject(e);
+/******/ 						return;
+/******/ 					}
+/******/ 					resolve(update);
+/******/ 				}
+/******/ 			};
+/******/ 		});
+/******/ 	}
+/******/
+/******/ 	var hotApplyOnUpdate = true;
+/******/ 	var hotCurrentHash = "04471695c68661e492b0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotRequestTimeout = 10000;
+/******/ 	var hotCurrentModuleData = {};
+/******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentParentsTemp = []; // eslint-disable-line no-unused-vars
+/******/
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	function hotCreateRequire(moduleId) {
+/******/ 		var me = installedModules[moduleId];
+/******/ 		if (!me) return __webpack_require__;
+/******/ 		var fn = function(request) {
+/******/ 			if (me.hot.active) {
+/******/ 				if (installedModules[request]) {
+/******/ 					if (!installedModules[request].parents.includes(moduleId))
+/******/ 						installedModules[request].parents.push(moduleId);
+/******/ 				} else {
+/******/ 					hotCurrentParents = [moduleId];
+/******/ 					hotCurrentChildModule = request;
+/******/ 				}
+/******/ 				if (!me.children.includes(request)) me.children.push(request);
+/******/ 			} else {
+/******/ 				console.warn(
+/******/ 					"[HMR] unexpected require(" +
+/******/ 						request +
+/******/ 						") from disposed module " +
+/******/ 						moduleId
+/******/ 				);
+/******/ 				hotCurrentParents = [];
+/******/ 			}
+/******/ 			return __webpack_require__(request);
+/******/ 		};
+/******/ 		var ObjectFactory = function ObjectFactory(name) {
+/******/ 			return {
+/******/ 				configurable: true,
+/******/ 				enumerable: true,
+/******/ 				get: function() {
+/******/ 					return __webpack_require__[name];
+/******/ 				},
+/******/ 				set: function(value) {
+/******/ 					__webpack_require__[name] = value;
+/******/ 				}
+/******/ 			};
+/******/ 		};
+/******/ 		for (var name in __webpack_require__) {
+/******/ 			if (
+/******/ 				Object.prototype.hasOwnProperty.call(__webpack_require__, name) &&
+/******/ 				name !== "e"
+/******/ 			) {
+/******/ 				Object.defineProperty(fn, name, ObjectFactory(name));
+/******/ 			}
+/******/ 		}
+/******/ 		fn.e = function(chunkId) {
+/******/ 			if (hotStatus === "ready") hotSetStatus("prepare");
+/******/ 			hotChunksLoading++;
+/******/ 			return __webpack_require__.e(chunkId).then(finishChunkLoading, function(err) {
+/******/ 				finishChunkLoading();
+/******/ 				throw err;
+/******/ 			});
+/******/
+/******/ 			function finishChunkLoading() {
+/******/ 				hotChunksLoading--;
+/******/ 				if (hotStatus === "prepare") {
+/******/ 					if (!hotWaitingFilesMap[chunkId]) {
+/******/ 						hotEnsureUpdateChunk(chunkId);
+/******/ 					}
+/******/ 					if (hotChunksLoading === 0 && hotWaitingFiles === 0) {
+/******/ 						hotUpdateDownloaded();
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 		return fn;
+/******/ 	}
+/******/
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	function hotCreateModule(moduleId) {
+/******/ 		var hot = {
+/******/ 			// private stuff
+/******/ 			_acceptedDependencies: {},
+/******/ 			_declinedDependencies: {},
+/******/ 			_selfAccepted: false,
+/******/ 			_selfDeclined: false,
+/******/ 			_disposeHandlers: [],
+/******/ 			_main: hotCurrentChildModule !== moduleId,
+/******/
+/******/ 			// Module API
+/******/ 			active: true,
+/******/ 			accept: function(dep, callback) {
+/******/ 				if (typeof dep === "undefined") hot._selfAccepted = true;
+/******/ 				else if (typeof dep === "function") hot._selfAccepted = dep;
+/******/ 				else if (typeof dep === "object")
+/******/ 					for (var i = 0; i < dep.length; i++)
+/******/ 						hot._acceptedDependencies[dep[i]] = callback || function() {};
+/******/ 				else hot._acceptedDependencies[dep] = callback || function() {};
+/******/ 			},
+/******/ 			decline: function(dep) {
+/******/ 				if (typeof dep === "undefined") hot._selfDeclined = true;
+/******/ 				else if (typeof dep === "object")
+/******/ 					for (var i = 0; i < dep.length; i++)
+/******/ 						hot._declinedDependencies[dep[i]] = true;
+/******/ 				else hot._declinedDependencies[dep] = true;
+/******/ 			},
+/******/ 			dispose: function(callback) {
+/******/ 				hot._disposeHandlers.push(callback);
+/******/ 			},
+/******/ 			addDisposeHandler: function(callback) {
+/******/ 				hot._disposeHandlers.push(callback);
+/******/ 			},
+/******/ 			removeDisposeHandler: function(callback) {
+/******/ 				var idx = hot._disposeHandlers.indexOf(callback);
+/******/ 				if (idx >= 0) hot._disposeHandlers.splice(idx, 1);
+/******/ 			},
+/******/
+/******/ 			// Management API
+/******/ 			check: hotCheck,
+/******/ 			apply: hotApply,
+/******/ 			status: function(l) {
+/******/ 				if (!l) return hotStatus;
+/******/ 				hotStatusHandlers.push(l);
+/******/ 			},
+/******/ 			addStatusHandler: function(l) {
+/******/ 				hotStatusHandlers.push(l);
+/******/ 			},
+/******/ 			removeStatusHandler: function(l) {
+/******/ 				var idx = hotStatusHandlers.indexOf(l);
+/******/ 				if (idx >= 0) hotStatusHandlers.splice(idx, 1);
+/******/ 			},
+/******/
+/******/ 			//inherit from previous dispose call
+/******/ 			data: hotCurrentModuleData[moduleId]
+/******/ 		};
+/******/ 		hotCurrentChildModule = undefined;
+/******/ 		return hot;
+/******/ 	}
+/******/
+/******/ 	var hotStatusHandlers = [];
+/******/ 	var hotStatus = "idle";
+/******/
+/******/ 	function hotSetStatus(newStatus) {
+/******/ 		hotStatus = newStatus;
+/******/ 		for (var i = 0; i < hotStatusHandlers.length; i++)
+/******/ 			hotStatusHandlers[i].call(null, newStatus);
+/******/ 	}
+/******/
+/******/ 	// while downloading
+/******/ 	var hotWaitingFiles = 0;
+/******/ 	var hotChunksLoading = 0;
+/******/ 	var hotWaitingFilesMap = {};
+/******/ 	var hotRequestedFilesMap = {};
+/******/ 	var hotAvailableFilesMap = {};
+/******/ 	var hotDeferred;
+/******/
+/******/ 	// The update info
+/******/ 	var hotUpdate, hotUpdateNewHash;
+/******/
+/******/ 	function toModuleId(id) {
+/******/ 		var isNumber = +id + "" === id;
+/******/ 		return isNumber ? +id : id;
+/******/ 	}
+/******/
+/******/ 	function hotCheck(apply) {
+/******/ 		if (hotStatus !== "idle")
+/******/ 			throw new Error("check() is only allowed in idle status");
+/******/ 		hotApplyOnUpdate = apply;
+/******/ 		hotSetStatus("check");
+/******/ 		return hotDownloadManifest(hotRequestTimeout).then(function(update) {
+/******/ 			if (!update) {
+/******/ 				hotSetStatus("idle");
+/******/ 				return null;
+/******/ 			}
+/******/ 			hotRequestedFilesMap = {};
+/******/ 			hotWaitingFilesMap = {};
+/******/ 			hotAvailableFilesMap = update.c;
+/******/ 			hotUpdateNewHash = update.h;
+/******/
+/******/ 			hotSetStatus("prepare");
+/******/ 			var promise = new Promise(function(resolve, reject) {
+/******/ 				hotDeferred = {
+/******/ 					resolve: resolve,
+/******/ 					reject: reject
+/******/ 				};
+/******/ 			});
+/******/ 			hotUpdate = {};
+/******/ 			var chunkId = "app";
+/******/ 			{
+/******/ 				// eslint-disable-line no-lone-blocks
+/******/ 				/*globals chunkId */
+/******/ 				hotEnsureUpdateChunk(chunkId);
+/******/ 			}
+/******/ 			if (
+/******/ 				hotStatus === "prepare" &&
+/******/ 				hotChunksLoading === 0 &&
+/******/ 				hotWaitingFiles === 0
+/******/ 			) {
+/******/ 				hotUpdateDownloaded();
+/******/ 			}
+/******/ 			return promise;
+/******/ 		});
+/******/ 	}
+/******/
+/******/ 	// eslint-disable-next-line no-unused-vars
+/******/ 	function hotAddUpdateChunk(chunkId, moreModules) {
+/******/ 		if (!hotAvailableFilesMap[chunkId] || !hotRequestedFilesMap[chunkId])
+/******/ 			return;
+/******/ 		hotRequestedFilesMap[chunkId] = false;
+/******/ 		for (var moduleId in moreModules) {
+/******/ 			if (Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				hotUpdate[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if (--hotWaitingFiles === 0 && hotChunksLoading === 0) {
+/******/ 			hotUpdateDownloaded();
+/******/ 		}
+/******/ 	}
+/******/
+/******/ 	function hotEnsureUpdateChunk(chunkId) {
+/******/ 		if (!hotAvailableFilesMap[chunkId]) {
+/******/ 			hotWaitingFilesMap[chunkId] = true;
+/******/ 		} else {
+/******/ 			hotRequestedFilesMap[chunkId] = true;
+/******/ 			hotWaitingFiles++;
+/******/ 			hotDownloadUpdateChunk(chunkId);
+/******/ 		}
+/******/ 	}
+/******/
+/******/ 	function hotUpdateDownloaded() {
+/******/ 		hotSetStatus("ready");
+/******/ 		var deferred = hotDeferred;
+/******/ 		hotDeferred = null;
+/******/ 		if (!deferred) return;
+/******/ 		if (hotApplyOnUpdate) {
+/******/ 			// Wrap deferred object in Promise to mark it as a well-handled Promise to
+/******/ 			// avoid triggering uncaught exception warning in Chrome.
+/******/ 			// See https://bugs.chromium.org/p/chromium/issues/detail?id=465666
+/******/ 			Promise.resolve()
+/******/ 				.then(function() {
+/******/ 					return hotApply(hotApplyOnUpdate);
+/******/ 				})
+/******/ 				.then(
+/******/ 					function(result) {
+/******/ 						deferred.resolve(result);
+/******/ 					},
+/******/ 					function(err) {
+/******/ 						deferred.reject(err);
+/******/ 					}
+/******/ 				);
+/******/ 		} else {
+/******/ 			var outdatedModules = [];
+/******/ 			for (var id in hotUpdate) {
+/******/ 				if (Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
+/******/ 					outdatedModules.push(toModuleId(id));
+/******/ 				}
+/******/ 			}
+/******/ 			deferred.resolve(outdatedModules);
+/******/ 		}
+/******/ 	}
+/******/
+/******/ 	function hotApply(options) {
+/******/ 		if (hotStatus !== "ready")
+/******/ 			throw new Error("apply() is only allowed in ready status");
+/******/ 		options = options || {};
+/******/
+/******/ 		var cb;
+/******/ 		var i;
+/******/ 		var j;
+/******/ 		var module;
+/******/ 		var moduleId;
+/******/
+/******/ 		function getAffectedStuff(updateModuleId) {
+/******/ 			var outdatedModules = [updateModuleId];
+/******/ 			var outdatedDependencies = {};
+/******/
+/******/ 			var queue = outdatedModules.slice().map(function(id) {
+/******/ 				return {
+/******/ 					chain: [id],
+/******/ 					id: id
+/******/ 				};
+/******/ 			});
+/******/ 			while (queue.length > 0) {
+/******/ 				var queueItem = queue.pop();
+/******/ 				var moduleId = queueItem.id;
+/******/ 				var chain = queueItem.chain;
+/******/ 				module = installedModules[moduleId];
+/******/ 				if (!module || module.hot._selfAccepted) continue;
+/******/ 				if (module.hot._selfDeclined) {
+/******/ 					return {
+/******/ 						type: "self-declined",
+/******/ 						chain: chain,
+/******/ 						moduleId: moduleId
+/******/ 					};
+/******/ 				}
+/******/ 				if (module.hot._main) {
+/******/ 					return {
+/******/ 						type: "unaccepted",
+/******/ 						chain: chain,
+/******/ 						moduleId: moduleId
+/******/ 					};
+/******/ 				}
+/******/ 				for (var i = 0; i < module.parents.length; i++) {
+/******/ 					var parentId = module.parents[i];
+/******/ 					var parent = installedModules[parentId];
+/******/ 					if (!parent) continue;
+/******/ 					if (parent.hot._declinedDependencies[moduleId]) {
+/******/ 						return {
+/******/ 							type: "declined",
+/******/ 							chain: chain.concat([parentId]),
+/******/ 							moduleId: moduleId,
+/******/ 							parentId: parentId
+/******/ 						};
+/******/ 					}
+/******/ 					if (outdatedModules.includes(parentId)) continue;
+/******/ 					if (parent.hot._acceptedDependencies[moduleId]) {
+/******/ 						if (!outdatedDependencies[parentId])
+/******/ 							outdatedDependencies[parentId] = [];
+/******/ 						addAllToSet(outdatedDependencies[parentId], [moduleId]);
+/******/ 						continue;
+/******/ 					}
+/******/ 					delete outdatedDependencies[parentId];
+/******/ 					outdatedModules.push(parentId);
+/******/ 					queue.push({
+/******/ 						chain: chain.concat([parentId]),
+/******/ 						id: parentId
+/******/ 					});
+/******/ 				}
+/******/ 			}
+/******/
+/******/ 			return {
+/******/ 				type: "accepted",
+/******/ 				moduleId: updateModuleId,
+/******/ 				outdatedModules: outdatedModules,
+/******/ 				outdatedDependencies: outdatedDependencies
+/******/ 			};
+/******/ 		}
+/******/
+/******/ 		function addAllToSet(a, b) {
+/******/ 			for (var i = 0; i < b.length; i++) {
+/******/ 				var item = b[i];
+/******/ 				if (!a.includes(item)) a.push(item);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		// at begin all updates modules are outdated
+/******/ 		// the "outdated" status can propagate to parents if they don't accept the children
+/******/ 		var outdatedDependencies = {};
+/******/ 		var outdatedModules = [];
+/******/ 		var appliedUpdate = {};
+/******/
+/******/ 		var warnUnexpectedRequire = function warnUnexpectedRequire() {
+/******/ 			console.warn(
+/******/ 				"[HMR] unexpected require(" + result.moduleId + ") to disposed module"
+/******/ 			);
+/******/ 		};
+/******/
+/******/ 		for (var id in hotUpdate) {
+/******/ 			if (Object.prototype.hasOwnProperty.call(hotUpdate, id)) {
+/******/ 				moduleId = toModuleId(id);
+/******/ 				var result;
+/******/ 				if (hotUpdate[id]) {
+/******/ 					result = getAffectedStuff(moduleId);
+/******/ 				} else {
+/******/ 					result = {
+/******/ 						type: "disposed",
+/******/ 						moduleId: id
+/******/ 					};
+/******/ 				}
+/******/ 				var abortError = false;
+/******/ 				var doApply = false;
+/******/ 				var doDispose = false;
+/******/ 				var chainInfo = "";
+/******/ 				if (result.chain) {
+/******/ 					chainInfo = "\nUpdate propagation: " + result.chain.join(" -> ");
+/******/ 				}
+/******/ 				switch (result.type) {
+/******/ 					case "self-declined":
+/******/ 						if (options.onDeclined) options.onDeclined(result);
+/******/ 						if (!options.ignoreDeclined)
+/******/ 							abortError = new Error(
+/******/ 								"Aborted because of self decline: " +
+/******/ 									result.moduleId +
+/******/ 									chainInfo
+/******/ 							);
+/******/ 						break;
+/******/ 					case "declined":
+/******/ 						if (options.onDeclined) options.onDeclined(result);
+/******/ 						if (!options.ignoreDeclined)
+/******/ 							abortError = new Error(
+/******/ 								"Aborted because of declined dependency: " +
+/******/ 									result.moduleId +
+/******/ 									" in " +
+/******/ 									result.parentId +
+/******/ 									chainInfo
+/******/ 							);
+/******/ 						break;
+/******/ 					case "unaccepted":
+/******/ 						if (options.onUnaccepted) options.onUnaccepted(result);
+/******/ 						if (!options.ignoreUnaccepted)
+/******/ 							abortError = new Error(
+/******/ 								"Aborted because " + moduleId + " is not accepted" + chainInfo
+/******/ 							);
+/******/ 						break;
+/******/ 					case "accepted":
+/******/ 						if (options.onAccepted) options.onAccepted(result);
+/******/ 						doApply = true;
+/******/ 						break;
+/******/ 					case "disposed":
+/******/ 						if (options.onDisposed) options.onDisposed(result);
+/******/ 						doDispose = true;
+/******/ 						break;
+/******/ 					default:
+/******/ 						throw new Error("Unexception type " + result.type);
+/******/ 				}
+/******/ 				if (abortError) {
+/******/ 					hotSetStatus("abort");
+/******/ 					return Promise.reject(abortError);
+/******/ 				}
+/******/ 				if (doApply) {
+/******/ 					appliedUpdate[moduleId] = hotUpdate[moduleId];
+/******/ 					addAllToSet(outdatedModules, result.outdatedModules);
+/******/ 					for (moduleId in result.outdatedDependencies) {
+/******/ 						if (
+/******/ 							Object.prototype.hasOwnProperty.call(
+/******/ 								result.outdatedDependencies,
+/******/ 								moduleId
+/******/ 							)
+/******/ 						) {
+/******/ 							if (!outdatedDependencies[moduleId])
+/******/ 								outdatedDependencies[moduleId] = [];
+/******/ 							addAllToSet(
+/******/ 								outdatedDependencies[moduleId],
+/******/ 								result.outdatedDependencies[moduleId]
+/******/ 							);
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 				if (doDispose) {
+/******/ 					addAllToSet(outdatedModules, [result.moduleId]);
+/******/ 					appliedUpdate[moduleId] = warnUnexpectedRequire;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		// Store self accepted outdated modules to require them later by the module system
+/******/ 		var outdatedSelfAcceptedModules = [];
+/******/ 		for (i = 0; i < outdatedModules.length; i++) {
+/******/ 			moduleId = outdatedModules[i];
+/******/ 			if (
+/******/ 				installedModules[moduleId] &&
+/******/ 				installedModules[moduleId].hot._selfAccepted
+/******/ 			)
+/******/ 				outdatedSelfAcceptedModules.push({
+/******/ 					module: moduleId,
+/******/ 					errorHandler: installedModules[moduleId].hot._selfAccepted
+/******/ 				});
+/******/ 		}
+/******/
+/******/ 		// Now in "dispose" phase
+/******/ 		hotSetStatus("dispose");
+/******/ 		Object.keys(hotAvailableFilesMap).forEach(function(chunkId) {
+/******/ 			if (hotAvailableFilesMap[chunkId] === false) {
+/******/ 				hotDisposeChunk(chunkId);
+/******/ 			}
+/******/ 		});
+/******/
+/******/ 		var idx;
+/******/ 		var queue = outdatedModules.slice();
+/******/ 		while (queue.length > 0) {
+/******/ 			moduleId = queue.pop();
+/******/ 			module = installedModules[moduleId];
+/******/ 			if (!module) continue;
+/******/
+/******/ 			var data = {};
+/******/
+/******/ 			// Call dispose handlers
+/******/ 			var disposeHandlers = module.hot._disposeHandlers;
+/******/ 			for (j = 0; j < disposeHandlers.length; j++) {
+/******/ 				cb = disposeHandlers[j];
+/******/ 				cb(data);
+/******/ 			}
+/******/ 			hotCurrentModuleData[moduleId] = data;
+/******/
+/******/ 			// disable module (this disables requires from this module)
+/******/ 			module.hot.active = false;
+/******/
+/******/ 			// remove module from cache
+/******/ 			delete installedModules[moduleId];
+/******/
+/******/ 			// when disposing there is no need to call dispose handler
+/******/ 			delete outdatedDependencies[moduleId];
+/******/
+/******/ 			// remove "parents" references from all children
+/******/ 			for (j = 0; j < module.children.length; j++) {
+/******/ 				var child = installedModules[module.children[j]];
+/******/ 				if (!child) continue;
+/******/ 				idx = child.parents.indexOf(moduleId);
+/******/ 				if (idx >= 0) {
+/******/ 					child.parents.splice(idx, 1);
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		// remove outdated dependency from module children
+/******/ 		var dependency;
+/******/ 		var moduleOutdatedDependencies;
+/******/ 		for (moduleId in outdatedDependencies) {
+/******/ 			if (
+/******/ 				Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)
+/******/ 			) {
+/******/ 				module = installedModules[moduleId];
+/******/ 				if (module) {
+/******/ 					moduleOutdatedDependencies = outdatedDependencies[moduleId];
+/******/ 					for (j = 0; j < moduleOutdatedDependencies.length; j++) {
+/******/ 						dependency = moduleOutdatedDependencies[j];
+/******/ 						idx = module.children.indexOf(dependency);
+/******/ 						if (idx >= 0) module.children.splice(idx, 1);
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		// Not in "apply" phase
+/******/ 		hotSetStatus("apply");
+/******/
+/******/ 		hotCurrentHash = hotUpdateNewHash;
+/******/
+/******/ 		// insert new code
+/******/ 		for (moduleId in appliedUpdate) {
+/******/ 			if (Object.prototype.hasOwnProperty.call(appliedUpdate, moduleId)) {
+/******/ 				modules[moduleId] = appliedUpdate[moduleId];
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		// call accept handlers
+/******/ 		var error = null;
+/******/ 		for (moduleId in outdatedDependencies) {
+/******/ 			if (
+/******/ 				Object.prototype.hasOwnProperty.call(outdatedDependencies, moduleId)
+/******/ 			) {
+/******/ 				module = installedModules[moduleId];
+/******/ 				if (module) {
+/******/ 					moduleOutdatedDependencies = outdatedDependencies[moduleId];
+/******/ 					var callbacks = [];
+/******/ 					for (i = 0; i < moduleOutdatedDependencies.length; i++) {
+/******/ 						dependency = moduleOutdatedDependencies[i];
+/******/ 						cb = module.hot._acceptedDependencies[dependency];
+/******/ 						if (cb) {
+/******/ 							if (callbacks.includes(cb)) continue;
+/******/ 							callbacks.push(cb);
+/******/ 						}
+/******/ 					}
+/******/ 					for (i = 0; i < callbacks.length; i++) {
+/******/ 						cb = callbacks[i];
+/******/ 						try {
+/******/ 							cb(moduleOutdatedDependencies);
+/******/ 						} catch (err) {
+/******/ 							if (options.onErrored) {
+/******/ 								options.onErrored({
+/******/ 									type: "accept-errored",
+/******/ 									moduleId: moduleId,
+/******/ 									dependencyId: moduleOutdatedDependencies[i],
+/******/ 									error: err
+/******/ 								});
+/******/ 							}
+/******/ 							if (!options.ignoreErrored) {
+/******/ 								if (!error) error = err;
+/******/ 							}
+/******/ 						}
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		// Load self accepted modules
+/******/ 		for (i = 0; i < outdatedSelfAcceptedModules.length; i++) {
+/******/ 			var item = outdatedSelfAcceptedModules[i];
+/******/ 			moduleId = item.module;
+/******/ 			hotCurrentParents = [moduleId];
+/******/ 			try {
+/******/ 				__webpack_require__(moduleId);
+/******/ 			} catch (err) {
+/******/ 				if (typeof item.errorHandler === "function") {
+/******/ 					try {
+/******/ 						item.errorHandler(err);
+/******/ 					} catch (err2) {
+/******/ 						if (options.onErrored) {
+/******/ 							options.onErrored({
+/******/ 								type: "self-accept-error-handler-errored",
+/******/ 								moduleId: moduleId,
+/******/ 								error: err2,
+/******/ 								originalError: err
+/******/ 							});
+/******/ 						}
+/******/ 						if (!options.ignoreErrored) {
+/******/ 							if (!error) error = err2;
+/******/ 						}
+/******/ 						if (!error) error = err;
+/******/ 					}
+/******/ 				} else {
+/******/ 					if (options.onErrored) {
+/******/ 						options.onErrored({
+/******/ 							type: "self-accept-errored",
+/******/ 							moduleId: moduleId,
+/******/ 							error: err
+/******/ 						});
+/******/ 					}
+/******/ 					if (!options.ignoreErrored) {
+/******/ 						if (!error) error = err;
+/******/ 					}
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		// handle errors in accept handlers and self accepted module load
+/******/ 		if (error) {
+/******/ 			hotSetStatus("fail");
+/******/ 			return Promise.reject(error);
+/******/ 		}
+/******/
+/******/ 		hotSetStatus("idle");
+/******/ 		return new Promise(function(resolve) {
+/******/ 			resolve(outdatedModules);
+/******/ 		});
+/******/ 	}
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {},
+/******/ 			hot: hotCreateModule(moduleId),
+/******/ 			parents: (hotCurrentParentsTemp = hotCurrentParents, hotCurrentParents = [], hotCurrentParentsTemp),
+/******/ 			children: []
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, hotCreateRequire(moduleId));
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// __webpack_hash__
+/******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return hotCreateRequire("./app/index.js")(__webpack_require__.s = "./app/index.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./app/data.js":
+/*!*********************!*\
+  !*** ./app/data.js ***!
+  \*********************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar questions = ['Find the sum of all the multiples of 3 or 5 below 1,000.', 'Find the sum of the even Fibonacci numbers less than 4,000,000.', 'Find the largest prime factor of 600,851,475,143.', 'Find the largest palindrome that is the multiple of two 3-digit numbers.', 'Smallest number divisible by 1,...,20.', 'Difference between the sum of squares and the square of the sum of the numbers 1,...,100'];\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (questions);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZGF0YS5qcz82MWVlIl0sIm5hbWVzIjpbInF1ZXN0aW9ucyJdLCJtYXBwaW5ncyI6IkFBQUE7QUFBQSxJQUFNQSxZQUFZLENBQ2hCLDBEQURnQixFQUVoQixpRUFGZ0IsRUFHaEIsbURBSGdCLEVBSWhCLDBFQUpnQixFQUtoQix3Q0FMZ0IsRUFNaEIsMEZBTmdCLENBQWxCOztBQVNBLCtEQUFlQSxTQUFmIiwiZmlsZSI6Ii4vYXBwL2RhdGEuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCBxdWVzdGlvbnMgPSBbXG4gICdGaW5kIHRoZSBzdW0gb2YgYWxsIHRoZSBtdWx0aXBsZXMgb2YgMyBvciA1IGJlbG93IDEsMDAwLicsXG4gICdGaW5kIHRoZSBzdW0gb2YgdGhlIGV2ZW4gRmlib25hY2NpIG51bWJlcnMgbGVzcyB0aGFuIDQsMDAwLDAwMC4nLFxuICAnRmluZCB0aGUgbGFyZ2VzdCBwcmltZSBmYWN0b3Igb2YgNjAwLDg1MSw0NzUsMTQzLicsXG4gICdGaW5kIHRoZSBsYXJnZXN0IHBhbGluZHJvbWUgdGhhdCBpcyB0aGUgbXVsdGlwbGUgb2YgdHdvIDMtZGlnaXQgbnVtYmVycy4nLFxuICAnU21hbGxlc3QgbnVtYmVyIGRpdmlzaWJsZSBieSAxLC4uLiwyMC4nLFxuICAnRGlmZmVyZW5jZSBiZXR3ZWVuIHRoZSBzdW0gb2Ygc3F1YXJlcyBhbmQgdGhlIHNxdWFyZSBvZiB0aGUgc3VtIG9mIHRoZSBudW1iZXJzIDEsLi4uLDEwMCcsXG5dO1xuXG5leHBvcnQgZGVmYXVsdCBxdWVzdGlvbnM7XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./app/data.js\n");
+
+/***/ }),
+
+/***/ "./app/exercises/Ex1.js":
+/*!******************************!*\
+  !*** ./app/exercises/Ex1.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ex1; });\n// Example 1: Multiples of 3 and 5\nfunction ex1() {\n  var sum = 0;\n\n  for (var i = 0; i < 1000; i += 1) {\n    if (i % 3 === 0 || i % 5 === 0) {\n      sum += i;\n    }\n  }\n\n  return sum;\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4MS5qcz8zYzA1Il0sIm5hbWVzIjpbImV4MSIsInN1bSIsImkiXSwibWFwcGluZ3MiOiI7QUFBQTtBQUFBO0FBQ2UsU0FBU0EsR0FBVCxHQUFlO0FBQzVCLE1BQUlDLE1BQU0sQ0FBVjs7QUFFQSxPQUFLLElBQUlDLElBQUksQ0FBYixFQUFnQkEsSUFBSSxJQUFwQixFQUEwQkEsS0FBSyxDQUEvQixFQUFrQztBQUNoQyxRQUFJQSxJQUFJLENBQUosS0FBVSxDQUFWLElBQWVBLElBQUksQ0FBSixLQUFVLENBQTdCLEVBQWdDO0FBQzlCRCxhQUFPQyxDQUFQO0FBQ0Q7QUFDRjs7QUFFRCxTQUFPRCxHQUFQO0FBQ0QiLCJmaWxlIjoiLi9hcHAvZXhlcmNpc2VzL0V4MS5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbIi8vIEV4YW1wbGUgMTogTXVsdGlwbGVzIG9mIDMgYW5kIDVcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGV4MSgpIHtcbiAgbGV0IHN1bSA9IDA7XG5cbiAgZm9yIChsZXQgaSA9IDA7IGkgPCAxMDAwOyBpICs9IDEpIHtcbiAgICBpZiAoaSAlIDMgPT09IDAgfHwgaSAlIDUgPT09IDApIHtcbiAgICAgIHN1bSArPSBpO1xuICAgIH1cbiAgfVxuXG4gIHJldHVybiBzdW07XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./app/exercises/Ex1.js\n");
+
+/***/ }),
+
+/***/ "./app/exercises/Ex2.js":
+/*!******************************!*\
+  !*** ./app/exercises/Ex2.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ex2; });\n// Example 2: Sums of Fibonacci\nfunction ex2() {\n  var pre = 1;\n  var prepre = 1;\n  var total = 0;\n\n  for (var cur = 2; cur < 4000000; cur += prepre) {\n    if (cur % 2 === 0) {\n      total += cur;\n    }\n    prepre = pre;\n    pre = cur;\n  }\n\n  return total;\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4Mi5qcz84NmUyIl0sIm5hbWVzIjpbImV4MiIsInByZSIsInByZXByZSIsInRvdGFsIiwiY3VyIl0sIm1hcHBpbmdzIjoiO0FBQUE7QUFBQTtBQUNlLFNBQVNBLEdBQVQsR0FBZTtBQUM1QixNQUFJQyxNQUFNLENBQVY7QUFDQSxNQUFJQyxTQUFTLENBQWI7QUFDQSxNQUFJQyxRQUFRLENBQVo7O0FBRUEsT0FBSyxJQUFJQyxNQUFNLENBQWYsRUFBa0JBLE1BQU0sT0FBeEIsRUFBaUNBLE9BQU9GLE1BQXhDLEVBQWdEO0FBQzlDLFFBQUlFLE1BQU0sQ0FBTixLQUFZLENBQWhCLEVBQW1CO0FBQ2pCRCxlQUFTQyxHQUFUO0FBQ0Q7QUFDREYsYUFBU0QsR0FBVDtBQUNBQSxVQUFNRyxHQUFOO0FBQ0Q7O0FBRUQsU0FBT0QsS0FBUDtBQUNEIiwiZmlsZSI6Ii4vYXBwL2V4ZXJjaXNlcy9FeDIuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeGFtcGxlIDI6IFN1bXMgb2YgRmlib25hY2NpXG5leHBvcnQgZGVmYXVsdCBmdW5jdGlvbiBleDIoKSB7XG4gIGxldCBwcmUgPSAxO1xuICBsZXQgcHJlcHJlID0gMTtcbiAgbGV0IHRvdGFsID0gMDtcblxuICBmb3IgKGxldCBjdXIgPSAyOyBjdXIgPCA0MDAwMDAwOyBjdXIgKz0gcHJlcHJlKSB7XG4gICAgaWYgKGN1ciAlIDIgPT09IDApIHtcbiAgICAgIHRvdGFsICs9IGN1cjtcbiAgICB9XG4gICAgcHJlcHJlID0gcHJlO1xuICAgIHByZSA9IGN1cjtcbiAgfVxuXG4gIHJldHVybiB0b3RhbDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./app/exercises/Ex2.js\n");
+
+/***/ }),
+
+/***/ "./app/exercises/Ex3.js":
+/*!******************************!*\
+  !*** ./app/exercises/Ex3.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ex3; });\n// Example 3: Largest prime\nfunction ex3() {\n  var n = Math.sqrt(600851475143); // This is the highest you have to check.\n  var primeCheck = 0;\n  var prime = 0;\n  var m = 0;\n\n  for (var i = 1; i < n; i += 2) {\n    primeCheck = 1;\n    // First, check to see if 'i' is prime.\n    m = Math.sqrt(i);\n    if (i % 3 === 0) {\n      // i is definitely not even\n      primeCheck = 3;\n    } else {\n      // i is prime iff it is divisible by 6k-1 or 6k+1\n      for (var j = 5; j < m; j += 6) {\n        if (i % j === 0 || i % (j + 2) === 0) {\n          primeCheck = j;\n          if (primeCheck > 1) {\n            break;\n          }\n        }\n      }\n    }\n    /* If it is prime, then its largest divisor is 1,\n    so use this to check if it divides our number. */\n    if (primeCheck === 1 && 600851475143 % i === 0) {\n      prime = i;\n    }\n  }\n\n  return prime;\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4My5qcz8zMjFjIl0sIm5hbWVzIjpbImV4MyIsIm4iLCJNYXRoIiwic3FydCIsInByaW1lQ2hlY2siLCJwcmltZSIsIm0iLCJpIiwiaiJdLCJtYXBwaW5ncyI6IjtBQUFBO0FBQUE7QUFDZSxTQUFTQSxHQUFULEdBQWU7QUFDNUIsTUFBTUMsSUFBSUMsS0FBS0MsSUFBTCxDQUFVLFlBQVYsQ0FBVixDQUQ0QixDQUNPO0FBQ25DLE1BQUlDLGFBQWEsQ0FBakI7QUFDQSxNQUFJQyxRQUFRLENBQVo7QUFDQSxNQUFJQyxJQUFJLENBQVI7O0FBRUEsT0FBSyxJQUFJQyxJQUFJLENBQWIsRUFBZ0JBLElBQUlOLENBQXBCLEVBQXVCTSxLQUFLLENBQTVCLEVBQStCO0FBQzdCSCxpQkFBYSxDQUFiO0FBQ0E7QUFDQUUsUUFBSUosS0FBS0MsSUFBTCxDQUFVSSxDQUFWLENBQUo7QUFDQSxRQUFJQSxJQUFJLENBQUosS0FBVSxDQUFkLEVBQWlCO0FBQ2Y7QUFDQUgsbUJBQWEsQ0FBYjtBQUNELEtBSEQsTUFHTztBQUNMO0FBQ0EsV0FBSyxJQUFJSSxJQUFJLENBQWIsRUFBZ0JBLElBQUlGLENBQXBCLEVBQXVCRSxLQUFLLENBQTVCLEVBQStCO0FBQzdCLFlBQUlELElBQUlDLENBQUosS0FBVSxDQUFWLElBQWVELEtBQUtDLElBQUksQ0FBVCxNQUFnQixDQUFuQyxFQUFzQztBQUNwQ0osdUJBQWFJLENBQWI7QUFDQSxjQUFJSixhQUFhLENBQWpCLEVBQW9CO0FBQ2xCO0FBQ0Q7QUFDRjtBQUNGO0FBQ0Y7QUFDRDs7QUFFQSxRQUFJQSxlQUFlLENBQWYsSUFBb0IsZUFBZUcsQ0FBZixLQUFxQixDQUE3QyxFQUFnRDtBQUM5Q0YsY0FBUUUsQ0FBUjtBQUNEO0FBQ0Y7O0FBRUQsU0FBT0YsS0FBUDtBQUNEIiwiZmlsZSI6Ii4vYXBwL2V4ZXJjaXNlcy9FeDMuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyIvLyBFeGFtcGxlIDM6IExhcmdlc3QgcHJpbWVcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGV4MygpIHtcbiAgY29uc3QgbiA9IE1hdGguc3FydCg2MDA4NTE0NzUxNDMpOyAvLyBUaGlzIGlzIHRoZSBoaWdoZXN0IHlvdSBoYXZlIHRvIGNoZWNrLlxuICBsZXQgcHJpbWVDaGVjayA9IDA7XG4gIGxldCBwcmltZSA9IDA7XG4gIGxldCBtID0gMDtcblxuICBmb3IgKGxldCBpID0gMTsgaSA8IG47IGkgKz0gMikge1xuICAgIHByaW1lQ2hlY2sgPSAxO1xuICAgIC8vIEZpcnN0LCBjaGVjayB0byBzZWUgaWYgJ2knIGlzIHByaW1lLlxuICAgIG0gPSBNYXRoLnNxcnQoaSk7XG4gICAgaWYgKGkgJSAzID09PSAwKSB7XG4gICAgICAvLyBpIGlzIGRlZmluaXRlbHkgbm90IGV2ZW5cbiAgICAgIHByaW1lQ2hlY2sgPSAzO1xuICAgIH0gZWxzZSB7XG4gICAgICAvLyBpIGlzIHByaW1lIGlmZiBpdCBpcyBkaXZpc2libGUgYnkgNmstMSBvciA2aysxXG4gICAgICBmb3IgKGxldCBqID0gNTsgaiA8IG07IGogKz0gNikge1xuICAgICAgICBpZiAoaSAlIGogPT09IDAgfHwgaSAlIChqICsgMikgPT09IDApIHtcbiAgICAgICAgICBwcmltZUNoZWNrID0gajtcbiAgICAgICAgICBpZiAocHJpbWVDaGVjayA+IDEpIHtcbiAgICAgICAgICAgIGJyZWFrO1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgfVxuICAgIH1cbiAgICAvKiBJZiBpdCBpcyBwcmltZSwgdGhlbiBpdHMgbGFyZ2VzdCBkaXZpc29yIGlzIDEsXG4gICAgc28gdXNlIHRoaXMgdG8gY2hlY2sgaWYgaXQgZGl2aWRlcyBvdXIgbnVtYmVyLiAqL1xuICAgIGlmIChwcmltZUNoZWNrID09PSAxICYmIDYwMDg1MTQ3NTE0MyAlIGkgPT09IDApIHtcbiAgICAgIHByaW1lID0gaTtcbiAgICB9XG4gIH1cblxuICByZXR1cm4gcHJpbWU7XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./app/exercises/Ex3.js\n");
+
+/***/ }),
+
+/***/ "./app/exercises/Ex4.js":
+/*!******************************!*\
+  !*** ./app/exercises/Ex4.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ex4; });\n// Example 4: Largest Palindrome Project\nfunction ex4() {\n  var pal = 0;\n  var temp = 0;\n  var temp2 = 0;\n\n  for (var i = 1; i < 1000; i += 1) {\n    for (var j = 1; j < 1000; j += 1) {\n      temp = i * j;\n      temp2 = temp.toString().split('').reverse().join('');\n      if (temp.toString() === temp2 && temp > pal) {\n        pal = temp;\n      }\n    }\n  }\n\n  return pal;\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4NC5qcz83ODVjIl0sIm5hbWVzIjpbImV4NCIsInBhbCIsInRlbXAiLCJ0ZW1wMiIsImkiLCJqIiwidG9TdHJpbmciLCJzcGxpdCIsInJldmVyc2UiLCJqb2luIl0sIm1hcHBpbmdzIjoiO0FBQUE7QUFBQTtBQUNlLFNBQVNBLEdBQVQsR0FBZTtBQUM1QixNQUFJQyxNQUFNLENBQVY7QUFDQSxNQUFJQyxPQUFPLENBQVg7QUFDQSxNQUFJQyxRQUFRLENBQVo7O0FBRUEsT0FBSyxJQUFJQyxJQUFJLENBQWIsRUFBZ0JBLElBQUksSUFBcEIsRUFBMEJBLEtBQUssQ0FBL0IsRUFBa0M7QUFDaEMsU0FBSyxJQUFJQyxJQUFJLENBQWIsRUFBZ0JBLElBQUksSUFBcEIsRUFBMEJBLEtBQUssQ0FBL0IsRUFBa0M7QUFDaENILGFBQU9FLElBQUlDLENBQVg7QUFDQUYsY0FBUUQsS0FBS0ksUUFBTCxHQUFnQkMsS0FBaEIsQ0FBc0IsRUFBdEIsRUFBMEJDLE9BQTFCLEdBQW9DQyxJQUFwQyxDQUF5QyxFQUF6QyxDQUFSO0FBQ0EsVUFBSVAsS0FBS0ksUUFBTCxPQUFvQkgsS0FBcEIsSUFBNkJELE9BQU9ELEdBQXhDLEVBQTZDO0FBQzNDQSxjQUFNQyxJQUFOO0FBQ0Q7QUFDRjtBQUNGOztBQUVELFNBQU9ELEdBQVA7QUFDRCIsImZpbGUiOiIuL2FwcC9leGVyY2lzZXMvRXg0LmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhhbXBsZSA0OiBMYXJnZXN0IFBhbGluZHJvbWUgUHJvamVjdFxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gZXg0KCkge1xuICBsZXQgcGFsID0gMDtcbiAgbGV0IHRlbXAgPSAwO1xuICBsZXQgdGVtcDIgPSAwO1xuXG4gIGZvciAobGV0IGkgPSAxOyBpIDwgMTAwMDsgaSArPSAxKSB7XG4gICAgZm9yIChsZXQgaiA9IDE7IGogPCAxMDAwOyBqICs9IDEpIHtcbiAgICAgIHRlbXAgPSBpICogajtcbiAgICAgIHRlbXAyID0gdGVtcC50b1N0cmluZygpLnNwbGl0KCcnKS5yZXZlcnNlKCkuam9pbignJyk7XG4gICAgICBpZiAodGVtcC50b1N0cmluZygpID09PSB0ZW1wMiAmJiB0ZW1wID4gcGFsKSB7XG4gICAgICAgIHBhbCA9IHRlbXA7XG4gICAgICB9XG4gICAgfVxuICB9XG5cbiAgcmV0dXJuIHBhbDtcbn1cbiJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./app/exercises/Ex4.js\n");
+
+/***/ }),
+
+/***/ "./app/exercises/Ex5.js":
+/*!******************************!*\
+  !*** ./app/exercises/Ex5.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ex5; });\n// Example 5: Smallest number divisible by 1,...,20.\nfunction ex5() {\n  var N = 20;\n  var cur = 2;\n\n  for (var temp = 2; temp < N;) {\n    if (cur % temp === 0) {\n      temp += 1;\n    } else {\n      temp = 2;\n      cur += 1;\n    }\n  }\n  return cur;\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4NS5qcz9jMGNlIl0sIm5hbWVzIjpbImV4NSIsIk4iLCJjdXIiLCJ0ZW1wIl0sIm1hcHBpbmdzIjoiO0FBQUE7QUFBQTtBQUNlLFNBQVNBLEdBQVQsR0FBZTtBQUM1QixNQUFNQyxJQUFJLEVBQVY7QUFDQSxNQUFJQyxNQUFNLENBQVY7O0FBRUEsT0FBSyxJQUFJQyxPQUFPLENBQWhCLEVBQW1CQSxPQUFPRixDQUExQixHQUE4QjtBQUM1QixRQUFJQyxNQUFNQyxJQUFOLEtBQWUsQ0FBbkIsRUFBc0I7QUFDcEJBLGNBQVEsQ0FBUjtBQUNELEtBRkQsTUFFTztBQUNMQSxhQUFPLENBQVA7QUFDQUQsYUFBTyxDQUFQO0FBQ0Q7QUFDRjtBQUNELFNBQU9BLEdBQVA7QUFDRCIsImZpbGUiOiIuL2FwcC9leGVyY2lzZXMvRXg1LmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhhbXBsZSA1OiBTbWFsbGVzdCBudW1iZXIgZGl2aXNpYmxlIGJ5IDEsLi4uLDIwLlxuZXhwb3J0IGRlZmF1bHQgZnVuY3Rpb24gZXg1KCkge1xuICBjb25zdCBOID0gMjA7XG4gIGxldCBjdXIgPSAyO1xuXG4gIGZvciAobGV0IHRlbXAgPSAyOyB0ZW1wIDwgTjspIHtcbiAgICBpZiAoY3VyICUgdGVtcCA9PT0gMCkge1xuICAgICAgdGVtcCArPSAxO1xuICAgIH0gZWxzZSB7XG4gICAgICB0ZW1wID0gMjtcbiAgICAgIGN1ciArPSAxO1xuICAgIH1cbiAgfVxuICByZXR1cm4gY3VyO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./app/exercises/Ex5.js\n");
+
+/***/ }),
+
+/***/ "./app/exercises/Ex6.js":
+/*!******************************!*\
+  !*** ./app/exercises/Ex6.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return ex6; });\n// Example 6: Sum and squares\nfunction ex6() {\n  var N = 100;\n  var sumsq = Math.pow(0.5 * N * (N + 1), 2);\n  var sqsum = 0;\n  for (var i = 1; i <= 100; i += 1) {\n    sqsum += Math.pow(i, 2);\n  }\n\n  return sumsq - sqsum;\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvZXhlcmNpc2VzL0V4Ni5qcz9lODcyIl0sIm5hbWVzIjpbImV4NiIsIk4iLCJzdW1zcSIsInNxc3VtIiwiaSJdLCJtYXBwaW5ncyI6IjtBQUFBO0FBQUE7QUFDZSxTQUFTQSxHQUFULEdBQWU7QUFDNUIsTUFBTUMsSUFBSSxHQUFWO0FBQ0EsTUFBTUMsaUJBQVMsTUFBTUQsQ0FBTixJQUFXQSxJQUFJLENBQWYsQ0FBVCxFQUErQixDQUEvQixDQUFOO0FBQ0EsTUFBSUUsUUFBUSxDQUFaO0FBQ0EsT0FBSyxJQUFJQyxJQUFJLENBQWIsRUFBZ0JBLEtBQUssR0FBckIsRUFBMEJBLEtBQUssQ0FBL0IsRUFBa0M7QUFDaENELHNCQUFTQyxDQUFULEVBQWMsQ0FBZDtBQUNEOztBQUVELFNBQU9GLFFBQVFDLEtBQWY7QUFDRCIsImZpbGUiOiIuL2FwcC9leGVyY2lzZXMvRXg2LmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gRXhhbXBsZSA2OiBTdW0gYW5kIHNxdWFyZXNcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIGV4NigpIHtcbiAgY29uc3QgTiA9IDEwMDtcbiAgY29uc3Qgc3Vtc3EgPSAoMC41ICogTiAqIChOICsgMSkpICoqIDI7XG4gIGxldCBzcXN1bSA9IDA7XG4gIGZvciAobGV0IGkgPSAxOyBpIDw9IDEwMDsgaSArPSAxKSB7XG4gICAgc3FzdW0gKz0gaSAqKiAyO1xuICB9XG5cbiAgcmV0dXJuIHN1bXNxIC0gc3FzdW07XG59XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./app/exercises/Ex6.js\n");
+
+/***/ }),
+
+/***/ "./app/index.js":
+/*!**********************!*\
+  !*** ./app/index.js ***!
+  \**********************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _exercises_Ex1__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./exercises/Ex1 */ \"./app/exercises/Ex1.js\");\n/* harmony import */ var _exercises_Ex2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./exercises/Ex2 */ \"./app/exercises/Ex2.js\");\n/* harmony import */ var _exercises_Ex3__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./exercises/Ex3 */ \"./app/exercises/Ex3.js\");\n/* harmony import */ var _exercises_Ex4__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./exercises/Ex4 */ \"./app/exercises/Ex4.js\");\n/* harmony import */ var _exercises_Ex5__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./exercises/Ex5 */ \"./app/exercises/Ex5.js\");\n/* harmony import */ var _exercises_Ex6__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./exercises/Ex6 */ \"./app/exercises/Ex6.js\");\n/* harmony import */ var _prettify__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./prettify */ \"./app/prettify.js\");\n/* harmony import */ var _template__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./template */ \"./app/template.js\");\n/* harmony import */ var _data__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./data */ \"./app/data.js\");\nfunction _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }\n\n// Get the functions\n\n\n\n\n\n\n\n\n// Get the data for the questions\n\n\n\n// Load lodash.  Not necessary because of webpack plugin settings.\nvar _ = __webpack_require__(/*! lodash */ \"lodash\");\n// Load jquery.  Not necessary because of webpack plugin settings.\nvar $ = __webpack_require__(/*! jquery */ \"jquery\");\n// Global variable used to hold the exercises\nvar ex = {};\n\n// Place functions in global variable\nex.ex1 = _exercises_Ex1__WEBPACK_IMPORTED_MODULE_0__[\"default\"];\nex.ex2 = _exercises_Ex2__WEBPACK_IMPORTED_MODULE_1__[\"default\"];\nex.ex3 = _exercises_Ex3__WEBPACK_IMPORTED_MODULE_2__[\"default\"];\nex.ex4 = _exercises_Ex4__WEBPACK_IMPORTED_MODULE_3__[\"default\"];\nex.ex5 = _exercises_Ex5__WEBPACK_IMPORTED_MODULE_4__[\"default\"];\nex.ex6 = _exercises_Ex6__WEBPACK_IMPORTED_MODULE_5__[\"default\"];\n\n// Render the questions\nvar template = _.template(_template__WEBPACK_IMPORTED_MODULE_7__[\"default\"]);\n\n[].concat(_toConsumableArray(_data__WEBPACK_IMPORTED_MODULE_8__[\"default\"])).forEach(function (el, i) {\n  $('#main').append(template({ num: i + 1, title: el }));\n});\n\n// Attach the function to the button\n[].concat(_toConsumableArray($('input'))).forEach(function (el) {\n  var num = parseInt(/[0-9]+/.exec(el.id), 10);\n\n  $(el).click(function () {\n    var ans = ex['ex' + num]($('#answer_' + num));\n    $('#answer_' + num).html(Object(_prettify__WEBPACK_IMPORTED_MODULE_6__[\"default\"])(ans));\n  });\n});//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvaW5kZXguanM/YzQwNCJdLCJuYW1lcyI6WyJfIiwicmVxdWlyZSIsIiQiLCJleCIsImV4MSIsImV4MiIsImV4MyIsImV4NCIsImV4NSIsImV4NiIsInRlbXBsYXRlIiwiZm9yRWFjaCIsImVsIiwiaSIsImFwcGVuZCIsIm51bSIsInRpdGxlIiwicGFyc2VJbnQiLCJleGVjIiwiaWQiLCJjbGljayIsImFucyIsImh0bWwiLCJwcmV0dGlmeSJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUE7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTs7QUFFQTtBQUNBO0FBQ0E7O0FBRUE7QUFDQSxJQUFNQSxJQUFJLG1CQUFBQyxDQUFRLHNCQUFSLENBQVY7QUFDQTtBQUNBLElBQU1DLElBQUksbUJBQUFELENBQVEsc0JBQVIsQ0FBVjtBQUNBO0FBQ0EsSUFBTUUsS0FBSyxFQUFYOztBQUVBO0FBQ0FBLEdBQUdDLEdBQUgsR0FBUyxzREFBVDtBQUNBRCxHQUFHRSxHQUFILEdBQVMsc0RBQVQ7QUFDQUYsR0FBR0csR0FBSCxHQUFTLHNEQUFUO0FBQ0FILEdBQUdJLEdBQUgsR0FBUyxzREFBVDtBQUNBSixHQUFHSyxHQUFILEdBQVMsc0RBQVQ7QUFDQUwsR0FBR00sR0FBSCxHQUFTLHNEQUFUOztBQUVBO0FBQ0EsSUFBTUMsV0FBV1YsRUFBRVUsUUFBRixDQUFXLGlEQUFYLENBQWpCOztBQUVBLDZCQUFJLDZDQUFKLEdBQWVDLE9BQWYsQ0FBdUIsVUFBQ0MsRUFBRCxFQUFLQyxDQUFMLEVBQVc7QUFDaENYLElBQUUsT0FBRixFQUFXWSxNQUFYLENBQWtCSixTQUFTLEVBQUVLLEtBQUtGLElBQUksQ0FBWCxFQUFjRyxPQUFPSixFQUFyQixFQUFULENBQWxCO0FBQ0QsQ0FGRDs7QUFJQTtBQUNBLDZCQUFJVixFQUFFLE9BQUYsQ0FBSixHQUFnQlMsT0FBaEIsQ0FBd0IsVUFBQ0MsRUFBRCxFQUFRO0FBQzlCLE1BQU1HLE1BQU1FLFNBQVMsU0FBU0MsSUFBVCxDQUFjTixHQUFHTyxFQUFqQixDQUFULEVBQStCLEVBQS9CLENBQVo7O0FBRUFqQixJQUFFVSxFQUFGLEVBQU1RLEtBQU4sQ0FBWSxZQUFNO0FBQ2hCLFFBQU1DLE1BQU1sQixVQUFRWSxHQUFSLEVBQWViLGVBQWFhLEdBQWIsQ0FBZixDQUFaO0FBQ0FiLG1CQUFhYSxHQUFiLEVBQW9CTyxJQUFwQixDQUF5Qix5REFBQUMsQ0FBU0YsR0FBVCxDQUF6QjtBQUNELEdBSEQ7QUFJRCxDQVBEIiwiZmlsZSI6Ii4vYXBwL2luZGV4LmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiLy8gR2V0IHRoZSBmdW5jdGlvbnNcbmltcG9ydCBleDEgZnJvbSAnLi9leGVyY2lzZXMvRXgxJztcbmltcG9ydCBleDIgZnJvbSAnLi9leGVyY2lzZXMvRXgyJztcbmltcG9ydCBleDMgZnJvbSAnLi9leGVyY2lzZXMvRXgzJztcbmltcG9ydCBleDQgZnJvbSAnLi9leGVyY2lzZXMvRXg0JztcbmltcG9ydCBleDUgZnJvbSAnLi9leGVyY2lzZXMvRXg1JztcbmltcG9ydCBleDYgZnJvbSAnLi9leGVyY2lzZXMvRXg2JztcbmltcG9ydCBwcmV0dGlmeSBmcm9tICcuL3ByZXR0aWZ5JztcblxuLy8gR2V0IHRoZSBkYXRhIGZvciB0aGUgcXVlc3Rpb25zXG5pbXBvcnQgcXVlc3Rpb25UZW1wbGF0ZSBmcm9tICcuL3RlbXBsYXRlJztcbmltcG9ydCBxdWVzdGlvbnMgZnJvbSAnLi9kYXRhJztcblxuLy8gTG9hZCBsb2Rhc2guICBOb3QgbmVjZXNzYXJ5IGJlY2F1c2Ugb2Ygd2VicGFjayBwbHVnaW4gc2V0dGluZ3MuXG5jb25zdCBfID0gcmVxdWlyZSgnbG9kYXNoJyk7XG4vLyBMb2FkIGpxdWVyeS4gIE5vdCBuZWNlc3NhcnkgYmVjYXVzZSBvZiB3ZWJwYWNrIHBsdWdpbiBzZXR0aW5ncy5cbmNvbnN0ICQgPSByZXF1aXJlKCdqcXVlcnknKTtcbi8vIEdsb2JhbCB2YXJpYWJsZSB1c2VkIHRvIGhvbGQgdGhlIGV4ZXJjaXNlc1xuY29uc3QgZXggPSB7fTtcblxuLy8gUGxhY2UgZnVuY3Rpb25zIGluIGdsb2JhbCB2YXJpYWJsZVxuZXguZXgxID0gZXgxO1xuZXguZXgyID0gZXgyO1xuZXguZXgzID0gZXgzO1xuZXguZXg0ID0gZXg0O1xuZXguZXg1ID0gZXg1O1xuZXguZXg2ID0gZXg2O1xuXG4vLyBSZW5kZXIgdGhlIHF1ZXN0aW9uc1xuY29uc3QgdGVtcGxhdGUgPSBfLnRlbXBsYXRlKHF1ZXN0aW9uVGVtcGxhdGUpO1xuXG5bLi4ucXVlc3Rpb25zXS5mb3JFYWNoKChlbCwgaSkgPT4ge1xuICAkKCcjbWFpbicpLmFwcGVuZCh0ZW1wbGF0ZSh7IG51bTogaSArIDEsIHRpdGxlOiBlbCB9KSk7XG59KTtcblxuLy8gQXR0YWNoIHRoZSBmdW5jdGlvbiB0byB0aGUgYnV0dG9uXG5bLi4uJCgnaW5wdXQnKV0uZm9yRWFjaCgoZWwpID0+IHtcbiAgY29uc3QgbnVtID0gcGFyc2VJbnQoL1swLTldKy8uZXhlYyhlbC5pZCksIDEwKTtcblxuICAkKGVsKS5jbGljaygoKSA9PiB7XG4gICAgY29uc3QgYW5zID0gZXhbYGV4JHtudW19YF0oJChgI2Fuc3dlcl8ke251bX1gKSk7XG4gICAgJChgI2Fuc3dlcl8ke251bX1gKS5odG1sKHByZXR0aWZ5KGFucykpO1xuICB9KTtcbn0pO1xuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./app/index.js\n");
+
+/***/ }),
+
+/***/ "./app/prettify.js":
+/*!*************************!*\
+  !*** ./app/prettify.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return prettify; });\nfunction prettify(yourNumber) {\n  // Seperates the components of the number\n  var n = yourNumber.toString().split('.');\n  // Comma-fies the first part\n  n[0] = n[0].replace(/\\B(?=(\\d{3})+(?!\\d))/g, ',');\n  // Combines the two sections\n  return n.join('.');\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvcHJldHRpZnkuanM/YWQwNSJdLCJuYW1lcyI6WyJwcmV0dGlmeSIsInlvdXJOdW1iZXIiLCJuIiwidG9TdHJpbmciLCJzcGxpdCIsInJlcGxhY2UiLCJqb2luIl0sIm1hcHBpbmdzIjoiOztBQUFlLFNBQVNBLFFBQVQsQ0FBa0JDLFVBQWxCLEVBQThCO0FBQzNDO0FBQ0EsTUFBTUMsSUFBSUQsV0FBV0UsUUFBWCxHQUFzQkMsS0FBdEIsQ0FBNEIsR0FBNUIsQ0FBVjtBQUNBO0FBQ0FGLElBQUUsQ0FBRixJQUFPQSxFQUFFLENBQUYsRUFBS0csT0FBTCxDQUFhLHVCQUFiLEVBQXNDLEdBQXRDLENBQVA7QUFDQTtBQUNBLFNBQU9ILEVBQUVJLElBQUYsQ0FBTyxHQUFQLENBQVA7QUFDRCIsImZpbGUiOiIuL2FwcC9wcmV0dGlmeS5qcy5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIHByZXR0aWZ5KHlvdXJOdW1iZXIpIHtcbiAgLy8gU2VwZXJhdGVzIHRoZSBjb21wb25lbnRzIG9mIHRoZSBudW1iZXJcbiAgY29uc3QgbiA9IHlvdXJOdW1iZXIudG9TdHJpbmcoKS5zcGxpdCgnLicpO1xuICAvLyBDb21tYS1maWVzIHRoZSBmaXJzdCBwYXJ0XG4gIG5bMF0gPSBuWzBdLnJlcGxhY2UoL1xcQig/PShcXGR7M30pKyg/IVxcZCkpL2csICcsJyk7XG4gIC8vIENvbWJpbmVzIHRoZSB0d28gc2VjdGlvbnNcbiAgcmV0dXJuIG4uam9pbignLicpO1xufVxuIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./app/prettify.js\n");
+
+/***/ }),
+
+/***/ "./app/template.js":
+/*!*************************!*\
+  !*** ./app/template.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nvar questionTemplate = '<div id = \"ex_<%= num %>\"<p class = \"example\"><strong>Example #<%= num %></strong>: <%= title %> </p>' + '<p>Answer: <span id=\"answer_<%= num %>\"></span></p>' + '<input id=\"b-<%= num %>\" type=\"button\" value=\"Answer the question.\" /></div><br>';\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (questionTemplate);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9hcHAvdGVtcGxhdGUuanM/ZGE4MSJdLCJuYW1lcyI6WyJxdWVzdGlvblRlbXBsYXRlIl0sIm1hcHBpbmdzIjoiQUFBQTtBQUFBLElBQU1BLG1CQUNKLDBHQUNBLHFEQURBLEdBRUEsa0ZBSEY7O0FBS0EsK0RBQWVBLGdCQUFmIiwiZmlsZSI6Ii4vYXBwL3RlbXBsYXRlLmpzLmpzIiwic291cmNlc0NvbnRlbnQiOlsiY29uc3QgcXVlc3Rpb25UZW1wbGF0ZSA9XG4gICc8ZGl2IGlkID0gXCJleF88JT0gbnVtICU+XCI8cCBjbGFzcyA9IFwiZXhhbXBsZVwiPjxzdHJvbmc+RXhhbXBsZSAjPCU9IG51bSAlPjwvc3Ryb25nPjogPCU9IHRpdGxlICU+IDwvcD4nICtcbiAgJzxwPkFuc3dlcjogPHNwYW4gaWQ9XCJhbnN3ZXJfPCU9IG51bSAlPlwiPjwvc3Bhbj48L3A+JyArXG4gICc8aW5wdXQgaWQ9XCJiLTwlPSBudW0gJT5cIiB0eXBlPVwiYnV0dG9uXCIgdmFsdWU9XCJBbnN3ZXIgdGhlIHF1ZXN0aW9uLlwiIC8+PC9kaXY+PGJyPic7XG5cbmV4cG9ydCBkZWZhdWx0IHF1ZXN0aW9uVGVtcGxhdGU7XG4iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./app/template.js\n");
+
+/***/ }),
+
+/***/ "jquery":
+/*!*************************!*\
+  !*** external "jQuery" ***!
+  \*************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = jQuery;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJqUXVlcnlcIj9jZDBjIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBIiwiZmlsZSI6ImpxdWVyeS5qcyIsInNvdXJjZXNDb250ZW50IjpbIm1vZHVsZS5leHBvcnRzID0galF1ZXJ5OyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///jquery\n");
+
+/***/ }),
+
+/***/ "lodash":
+/*!********************!*\
+  !*** external "_" ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = _;//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vZXh0ZXJuYWwgXCJfXCI/Mjc2NSJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSIsImZpbGUiOiJsb2Rhc2guanMiLCJzb3VyY2VzQ29udGVudCI6WyJtb2R1bGUuZXhwb3J0cyA9IF87Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///lodash\n");
+
+/***/ })
+
+/******/ });
