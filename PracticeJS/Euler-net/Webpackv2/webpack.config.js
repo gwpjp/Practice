@@ -9,7 +9,7 @@ const PATHS = {
   build: path.join(__dirname, 'build'),
 };
 
-const commonConfig = {
+const commonConfig = merge([{
   context: __dirname, // Not necessary because Webpack defaults to current working directory
   entry: {
     style: PATHS.style,
@@ -70,7 +70,9 @@ const commonConfig = {
       },
     ],
   },
-};
+},
+parts.setupHTML(),
+]);
 
 const productionConfig = merge(
   commonConfig,
