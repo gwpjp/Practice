@@ -6,27 +6,20 @@ const PurifyCSSPlugin = require('purifycss-webpack-plugin');
 const BabiliPlugin = require("babili-webpack-plugin");
 const UglifyWebpackPlugin = require("uglifyjs-webpack-plugin");
 
-//For inlining CSS
-exports.setupCSS = function(paths) {
-  return {
-    module: {
-      rules: [
-        {
-          test: /\.css$/,
-          use: [
-            {
-              loader: 'style-loader'
-            },
-            {
-              loader: 'css-loader'
-            }
-          ],
-          include: paths
-        }
-      ]
-    }
-  };
-}
+// For inlining CSS
+exports.loadCSS = ({ include, exclude } = {}) => ({
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        include,
+        exclude,
+
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
+});
 
 //For extracting CSS into a separate file
 exports.extractCSS = function(paths) {
@@ -138,6 +131,12 @@ exports.devServer = function(options) {
 
       // Display only errors to reduce the amount of output.
       stats: 'errors-only',
+
+      // Overlay errors in browser
+      overlay: {
+            errors: true,
+            warnings: true,
+          },
 
       // Parse host and port from env to allow customization.
       //

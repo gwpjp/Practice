@@ -4,7 +4,7 @@
     "commonjs": true
   },
   "parserOptions": {
-        "ecmaVersion": 7,
+        "ecmaVersion": 9,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
@@ -15,8 +15,5 @@
     "$": true,
     "_": true
   },
-  "extends": "airbnb/base", 
-  "rules": {
-    "indent": ["error", 2]
-  }
+  "extends": "airbnb/base"
 }
