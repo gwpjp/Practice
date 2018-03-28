@@ -5,6 +5,10 @@ const questions = [
   'Find the largest palindrome that is the multiple of two 3-digit numbers.',
   'Smallest number divisible by 1,...,20.',
   'Difference between the sum of squares and the square of the sum of the numbers 1,...,100',
+  '10,001st prime number',
+  'Largest product in a series',
+  'Special Pythagorean triplet',
+  'Summation of primes',
 ];
 
 export default questions;
