@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <h2>Project Euler</h2>
+
+    <img src="./assets/Leonhard_Euler.jpg" style="width:200px;float:right">
     <router-view/>
   </div>
 </template>
@@ -11,13 +13,20 @@ export default {
 };
 </script>
 
-<style>
+<style lang='scss'>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  $primary-color: magenta;
+
+  font-family: 'Helvetica Neue';
+  font-size: 14px;
+
+  h2 {
+    color: $primary-color;
+  }
+
+  #asdfasdadfa {
+    color: green;
+    font-weight: bold;
+  }
 }
 </style>
