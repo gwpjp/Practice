@@ -34,14 +34,14 @@
       </button>
     </div>
     <div id="actions">
-      <template v-for="action in actions">
+      <div v-for="(action, index) in actions" :key="index">
         <div class="action" style="background-color: pink; color: red">
            {{ action.monster }}
          </div>
         <div class="action" style="background-color: lightblue; color: blue">
           {{ action.player }}
         </div>
-      </template>
+      </div>
     </div>
   </div>
 </template>
@@ -49,7 +49,7 @@
 <script>
 export default {
   name: 'App',
-  data: function () {
+  data() {
     return {
       playerLife: 100,
       monsterLife: 100,
@@ -58,20 +58,20 @@ export default {
     };
   },
   methods: {
-    startGame: function () {
+    startGame() {
       this.play = true;
       this.playerLife = 100;
       this.monsterLife = 100;
       this.actions = [];
     },
-    checkWin: function () {
+    checkWin() {
       if (this.playerLife === 0) {
         alert('You lose.');
       } else if (this.monsterLife === 0) {
         alert('You win.');
       }
     },
-    attack: function () {
+    attack() {
       const playerHit = Math.floor(Math.random() * 10);
       const monsterHit = Math.floor(Math.random() * 10);
       this.playerLife = Math.max(0, this.playerLife -= playerHit);
@@ -82,7 +82,7 @@ export default {
       });
       this.checkWin();
     },
-    special: function () {
+    special() {
       const playerHit = Math.floor(Math.random() * 10);
       const monsterHit = Math.floor(Math.random() * 10);
       this.playerLife = Math.max(0, this.playerLife -= playerHit);
@@ -93,7 +93,7 @@ export default {
       });
       this.checkWin();
     },
-    heal: function () {
+    heal() {
       const playerHit = Math.floor(Math.random() * 10);
       const monsterHit = Math.floor(Math.random() * 10);
       this.playerLife = Math.min(100, this.playerLife += playerHit);
@@ -102,6 +102,10 @@ export default {
         monster: `MONSTER HEALS FOR ${monsterHit}`,
         player: `PLAYER HEALS FOR ${playerHit}`,
       });
+    },
+    give() {
+      this.play = false;
+      this.actions = [];
     },
   },
 
