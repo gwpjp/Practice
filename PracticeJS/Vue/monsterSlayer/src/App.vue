@@ -49,7 +49,7 @@
 <script>
 export default {
   name: 'App',
-  data: function() {
+  data: function () {
     return {
       playerLife: 100,
       monsterLife: 100,
@@ -78,9 +78,9 @@ export default {
       this.monsterLife = Math.max(0, this.monsterLife -= monsterHit);
       this.actions.push({
         monster: `MONSTER HITS PLAYER FOR ${playerHit}`,
-        player: `PLAYER HITS MONSTER FOR ${monsterHit}`
+        player: `PLAYER HITS MONSTER FOR ${monsterHit}`,
       });
-    this.checkWin();
+      this.checkWin();
     },
     special: function () {
       const playerHit = Math.floor(Math.random() * 10);
@@ -89,7 +89,7 @@ export default {
       this.monsterLife = Math.max(0, this.monsterLife -= monsterHit);
       this.actions.push({
         monster: `MONSTER HITS PLAYER FOR ${playerHit}`,
-        player: `PLAYER HITS MONSTER FOR ${monsterHit}`
+        player: `PLAYER HITS MONSTER FOR ${monsterHit}`,
       });
       this.checkWin();
     },
@@ -100,13 +100,9 @@ export default {
       this.monsterLife = Math.min(100, this.monsterLife += monsterHit);
       this.actions.push({
         monster: `MONSTER HEALS FOR ${monsterHit}`,
-        player: `PLAYER HEALS FOR ${playerHit}`
+        player: `PLAYER HEALS FOR ${playerHit}`,
       });
     },
-    give: function () {
-      this.play = false;
-      this.actions = [];
-    }
   },
 
 };
