@@ -1,28 +1,162 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <div class="container">
+      <div class="name">You</div>
+      <div class="name">Monster</div>
+    </div>
+    <div class="container">
+      <div class="bar">
+        <div id="playerLife" class="life" :style="{ width: playerLife + '%' }">
+          {{ playerLife }}
+        </div>
+      </div>
+      <div class="bar">
+        <div id="monsterLife" class="life" :style="{ width: monsterLife + '%' }">
+          {{ monsterLife }}
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <button v-if="!play" @click="startGame" style="background-color: greenyellow" class="button" >
+        START NEW GAME
+      </button>
+      <button v-if="play" @click="attack" style="background-color: red" class="button" >
+        ATTACK
+      </button>
+      <button v-if="play" @click="special" style="background-color: orange" class="button" >
+        SPECIAL ATTACK
+      </button>
+      <button v-if="play" @click="heal" style="background-color: greenyellow" class="button" >
+        HEAL
+      </button>
+      <button v-if="play" @click="give" style="background-color: white" class="button" >
+        GIVE UP
+      </button>
+    </div>
+    <div id="actions">
+      <template v-for="action in actions">
+        <div class="action" style="background-color: pink; color: red">
+           {{ action.monster }}
+         </div>
+        <div class="action" style="background-color: lightblue; color: blue">
+          {{ action.player }}
+        </div>
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
+  data: function() {
+    return {
+      playerLife: 100,
+      monsterLife: 100,
+      play: false,
+      actions: [],
+    };
   },
+  methods: {
+    startGame: function () {
+      this.play = true;
+      this.playerLife = 100;
+      this.monsterLife = 100;
+      this.actions = [];
+    },
+    checkWin: function () {
+      if (this.playerLife === 0) {
+        alert('You lose.');
+      } else if (this.monsterLife === 0) {
+        alert('You win.');
+      }
+    },
+    attack: function () {
+      const playerHit = Math.floor(Math.random() * 10);
+      const monsterHit = Math.floor(Math.random() * 10);
+      this.playerLife = Math.max(0, this.playerLife -= playerHit);
+      this.monsterLife = Math.max(0, this.monsterLife -= monsterHit);
+      this.actions.push({
+        monster: `MONSTER HITS PLAYER FOR ${playerHit}`,
+        player: `PLAYER HITS MONSTER FOR ${monsterHit}`
+      });
+    this.checkWin();
+    },
+    special: function () {
+      const playerHit = Math.floor(Math.random() * 10);
+      const monsterHit = Math.floor(Math.random() * 10);
+      this.playerLife = Math.max(0, this.playerLife -= playerHit);
+      this.monsterLife = Math.max(0, this.monsterLife -= monsterHit);
+      this.actions.push({
+        monster: `MONSTER HITS PLAYER FOR ${playerHit}`,
+        player: `PLAYER HITS MONSTER FOR ${monsterHit}`
+      });
+      this.checkWin();
+    },
+    heal: function () {
+      const playerHit = Math.floor(Math.random() * 10);
+      const monsterHit = Math.floor(Math.random() * 10);
+      this.playerLife = Math.min(100, this.playerLife += playerHit);
+      this.monsterLife = Math.min(100, this.monsterLife += monsterHit);
+      this.actions.push({
+        monster: `MONSTER HEALS FOR ${monsterHit}`,
+        player: `PLAYER HEALS FOR ${playerHit}`
+      });
+    },
+    give: function () {
+      this.play = false;
+      this.actions = [];
+    }
+  },
+
 };
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+}
+
+.container{
+  display: flex;
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.name{
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.bar{
+  width: 150px;
+  height: 20px;
+  background-color: gray;
+}
+
+.life{
+  height: 100%;
+  background-color: green;
+  color: white;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+.button{
+  padding: 5px;
+}
+
+.action {
+  margin-top: 5px;
+  text-align: center;
+}
+
+#actions {
+  width: 80%;
+  margin: auto;
 }
 </style>
