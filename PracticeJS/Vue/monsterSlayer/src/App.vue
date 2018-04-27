@@ -66,9 +66,11 @@ export default {
     },
     checkWin() {
       if (this.playerLife === 0) {
-        alert('You lose.');
+        confirm('You lose.');
+        this.give();
       } else if (this.monsterLife === 0) {
-        alert('You win.');
+        confirm('You win.');
+        this.give();
       }
     },
     attack() {
