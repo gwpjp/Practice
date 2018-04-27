@@ -86,7 +86,7 @@ export default {
     },
     special() {
       const playerHit = Math.floor(Math.random() * 10);
-      const monsterHit = Math.floor(Math.random() * 10);
+      const monsterHit = Math.floor(Math.random() * 15);
       this.playerLife = Math.max(0, this.playerLife -= playerHit);
       this.monsterLife = Math.max(0, this.monsterLife -= monsterHit);
       this.actions.push({
