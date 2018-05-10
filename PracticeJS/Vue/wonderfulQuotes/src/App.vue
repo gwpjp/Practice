@@ -8,9 +8,12 @@
     </div>
     <quote-form :quotes="quotes"></quote-form>
     <div class="row">
-      <div v-for="quote in quotes" class="col-sm-6 col-md-4">
-        <quote-block :quote="quote"></quote-block>
+      <div v-for="(quote, index) in quotes" class="col-sm-6 col-md-4">
+        <quote-block :quote="quote" :index="index" :quotes="quotes"></quote-block>
       </div>
+    </div>
+    <div class="info">
+      <p>Info - Click on a quote to delete it.</p>
     </div>
   </div>
 </template>
@@ -41,6 +44,12 @@ export default {
 <style lang="scss" scoped>
   #app {
     margin: 50px auto;
+  }
+
+  .info {
+    background-color: lightblue;
+    color: white;
+    text-align: center;
   }
 
 </style>

@@ -1,11 +1,15 @@
 <template>
-  <div class="quote">{{quote}}</div>
+  <div class="quote" @click="removeQuote">{{quote}}</div>
 </template>
 
 <script>
 export default {
-  props: ['quote'],
-
+  props: ['quote', 'index', 'quotes'],
+  methods: {
+    removeQuote() {
+      this.quotes.splice(this.index, 1);
+    }
+  }
 };
 </script>
 
@@ -17,5 +21,8 @@ export default {
     font-family: 'Arizonia', cursive;
     font-size: 18px;
     margin: 10px;
+    &:hover {
+      background-color: pink;
+    }
   }
 </style>
