@@ -6,17 +6,26 @@
           {{progress}}/10
         </div>
     </div>
+    <quote-form></quote-form>
+    <quote></quote>
   </div>
 </template>
 
 <script>
+import quoteForm from "./components/quoteForm.vue";
+//import quote from "./components/quote.Vue";
+
 export default {
   name: 'app',
   data () {
     return {
       progress: 1
     }
-  }
+  },
+  components: {
+    quoteForm,
+
+  },
 }
 </script>
 
@@ -24,5 +33,6 @@ export default {
   #app {
     margin: 50px auto;
   }
+
 
 </style>
