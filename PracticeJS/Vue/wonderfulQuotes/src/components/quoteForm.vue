@@ -20,11 +20,14 @@ export default {
   },
   methods: {
     addQuote() {
-      if (this.quotes.length < 10) {
-        let input = this.quoteInput ? this.quoteInput : "Quote";
-        this.quotes.push(input);
+      if (this.quoteInput) {
+        if (this.quotes.length < 10) {
+          this.quotes.push(this.quoteInput);
+        } else {
+          alert("Already at maximum number of quotes!");
+        }
       } else {
-        alert("Already at maximum number of quotes!");
+        alert("Your quote is empty!")
       }
 
     }
