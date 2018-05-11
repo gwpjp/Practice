@@ -12,8 +12,8 @@
         <quote-block :quote="quote" :index="index" :quotes="quotes"></quote-block>
       </div>
     </div>
-    <div class="info">
-      <p>Info - Click on a quote to delete it.</p>
+    <div class="alert alert-info text-center">
+      Info - Click on a quote to delete it.
     </div>
   </div>
 </template>
@@ -33,11 +33,6 @@ export default {
     quoteForm,
     quoteBlock,
   },
-  methods: {
-    addQuote() {
-
-    }
-  }
 }
 </script>
 
@@ -46,10 +41,5 @@ export default {
     margin: 50px auto;
   }
 
-  .info {
-    background-color: lightblue;
-    color: white;
-    text-align: center;
-  }
 
 </style>

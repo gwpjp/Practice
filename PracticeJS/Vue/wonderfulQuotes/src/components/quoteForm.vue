@@ -11,11 +11,15 @@
 <script>
 
 export default {
-  props: ['quotes'],
+  props: {
+    quotes: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       quoteInput: '',
-
     };
   },
   methods: {

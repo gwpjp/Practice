@@ -4,7 +4,20 @@
 
 <script>
 export default {
-  props: ['quote', 'index', 'quotes'],
+  props: {
+      quote: {
+        type: String,
+        required: true,
+      },
+    index: {
+      type: Number,
+      required: true,
+    },
+    quotes: {
+      type: Array,
+      required: true,
+    },
+  },
   methods: {
     removeQuote() {
       this.quotes.splice(this.index, 1);
