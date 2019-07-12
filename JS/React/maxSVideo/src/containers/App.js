@@ -24,25 +24,22 @@ class App extends Component {
       ...this.state.persons[personIndex]
     };
 
-    // const person = Object.assign({}, this.state.persons[personIndex]);
-
     person.name = event.target.value;
 
-    const persons = [...this.state.persons];
+    const persons = [...this.state.persons];  // To make sure to employ immutability
     persons[personIndex] = person;
 
     this.setState( { persons: persons } );
   }
 
   deletePersonHandler = ( personIndex ) => {
-    // const persons = this.state.persons.slice();
-    const persons = [...this.state.persons];
+    const persons = [...this.state.persons]; // To make sure to employ immutability
     persons.splice( personIndex, 1 );
     this.setState( { persons: persons } );
   }
 
   togglePersonsHandler = () => {
-    const doesShow = this.state.showPersons;
+    const doesShow = this.state.showPersons; // Primitive values already make a copy, so no immutability issues
     this.setState( { showPersons: !doesShow } );
   }
 
@@ -66,7 +63,6 @@ class App extends Component {
         {persons}
       </div>
     );
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
