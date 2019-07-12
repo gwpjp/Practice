@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset=" UTF-8">
+  <title> JP's Wine Cellar </title>
+</head>
+
+<body>
+  <section id="wineApp">
+    <header>
+      <h3> Your Wine Collection:
+    </header>
+    <ul id="wineList">
+    </ul>
+  </section>
+
+  <script type="text/template" id="wine-template">
+    <p id="wine">Name: <%= name %>, Country: <%= country %>, Grapes: <%= grapes %>, Year: <%= year %></p>
+
+
+  </script>
+
+
+  <script src=" js/lib/jquery-1.11.3.min.js">
+  </script>
+  <script src=" js/lib/underscore-min.js">
+  </script>
+  <script src=" js/lib/backbone-min.js">
+  </script>
+
+
+  <script src="js/models/wine.js"></script>
+  <script src="js/views/wineView.js"></script>
+  <script src="js/collections/wineList.js"></script>
+  <script src=" js/main.js">
+  </script>
+</body>
+
+</html>
