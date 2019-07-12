@@ -27,15 +27,16 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   .quote {
     border: .5px solid lightgray;
     padding: 10px;
     font-family: 'Arizonia', cursive;
     font-size: 18px;
     margin: 10px;
-    &:hover {
-      background-color: pink;
-    }
+  }
+
+  .quote:hover {
+    background-color: pink;
   }
 </style>

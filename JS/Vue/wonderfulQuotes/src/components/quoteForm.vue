@@ -40,7 +40,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="css" scoped>
   .form-group {
     width: 80%;
     margin: 20px auto;
