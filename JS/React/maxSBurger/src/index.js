@@ -29,7 +29,7 @@ const sagaMiddleware = createSagaMiddleware();
 //     applyMiddleware(thunk)
 // ));
 
-const store = createStore(rootReducer, applyMiddleware(thunk, sagaMiddleware));
+const store = createStore(rootReducer, applyMiddleware(sagaMiddleware));
 
 sagaMiddleware.run(watchAuth);
 sagaMiddleware.run(watchBurgerBuilder);
